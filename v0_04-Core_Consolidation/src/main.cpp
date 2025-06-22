@@ -255,11 +255,11 @@ int main() {
 	// vertex and buffers configurations -----------------------------------------
 	VertexArray light_va, cube_va;
 
-	Mesh lightMesh(light_vData, std::vector<unsigned int>{3}, vertexIndices);
+	Mesh lightMesh(light_vData, std::vector<unsigned int>{3});
 	light_va.Bind();
 	light_va.AddBuffer(lightMesh.GetVertexData(), lightMesh.GetVertexLayout());
 	
-	Mesh cubeMesh(cube_vData, std::vector<unsigned int>{3,3,2}, vertexIndices);
+	Mesh cubeMesh(cube_vData, std::vector<unsigned int>{3,3,2});
 	cube_va.Bind();
 	cube_va.AddBuffer(cubeMesh.GetVertexData(), cubeMesh.GetVertexLayout());
 

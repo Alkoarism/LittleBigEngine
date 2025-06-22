@@ -22,7 +22,7 @@ This README by itself will be used as such sketch in order to facilitate future 
 - v0.04: Core engine consolidation
 
 - v0.04.00: Sketch a working example of usage of the current features :heavy_check_mark:
-- v0.04.01: Consolidate Vertex, Texture and Shader Data with Entity class
+- v0.04.01: Consolidate Vertex, Texture and Shader Data with Entity class :o:
 - v0.04.02: Rebuild Texture Class
 
 - v0.05: Module and Third party resources consolidation
@@ -184,11 +184,14 @@ IndexBuffer ib(&indices[0], indices.size());
 #### Shader
 #### Renderer
 
+### World:
+#### Things
+#### Entity
+#### Model and Mesh
+
 ### Modules:
 #### Bitmap Font
 #### Freetype Font
-#### Entity
-#### Sprite Renderer
 
 # References
 External sources:

@@ -1,3 +1,6 @@
+[2025-06-22 12:22:31] v0_04_01_13: Separation of concerns: Who draws? -> Entity; How to draw? -> Model;
+[2025-06-22 11:33:40] v0_04_01_12: Finished first version of Entity class
+[2025-06-22 10:19:14] v0_04_01_11: Moved VAOs to Entity class
 [2025-06-20 13:10:46] v0_04_01_10: First draft of simplified Mesh Class
 [2025-06-20 09:50:43] v0_04_01_09: Completely removed 3D classes (mesh / ObjLoader)
 [2025-06-20 08:28:17] v0_04_01_08: Converted Assimp loader to Obj loader
