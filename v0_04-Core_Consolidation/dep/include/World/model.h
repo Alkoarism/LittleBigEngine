@@ -5,13 +5,12 @@
 
 class Model{
 public:
-    Model(std::string& shader);
+    Model();
     ~Model();
 
     void PushMesh(const VertexBuffer&, const VertexBufferLayout&);
-    void DrawModel();
 
-    void SetIndexBuffer(const std::vector<unsigned int>& indices);
+    void SetIndexBuffer(const std::vector<unsigned int>& indices); 
 
     const VertexArray& GetVertexArray() const { return m_VAO; }
     const IndexBuffer& GetIBO() const { return *m_IBO; }

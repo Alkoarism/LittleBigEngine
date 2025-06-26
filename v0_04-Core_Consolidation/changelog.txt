@@ -1,3 +1,4 @@
+[2025-06-26 13:52:39] v0_04_01_14: Finished skeleton of Model, Entity and Mesh classes (The renderer Draws)
 [2025-06-22 12:22:31] v0_04_01_13: Separation of concerns: Who draws? -> Entity; How to draw? -> Model;
 [2025-06-22 11:33:40] v0_04_01_12: Finished first version of Entity class
 [2025-06-22 10:19:14] v0_04_01_11: Moved VAOs to Entity class

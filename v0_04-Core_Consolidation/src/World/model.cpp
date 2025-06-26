@@ -1,6 +1,6 @@
 #include "World/model.h"
 
-Model::Model(std::string& shaderName){
+Model::Model() {
 
 }
 
@@ -11,10 +11,6 @@ Model::~Model(){
 void Model::PushMesh(const VertexBuffer& VBO, const VertexBufferLayout& VBL){
     m_VAO.Bind();
 	m_VAO.AddBuffer(VBO, VBL);
-}
-
-void Model::DrawModel(){
-    
 }
 
 void Model::SetIndexBuffer(const std::vector<unsigned int>& indices){
