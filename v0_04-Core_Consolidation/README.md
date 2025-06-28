@@ -1,19 +1,30 @@
-# Core Engine Consolidation
+# LittleBigEngine: Core Engine Consolidation
+![Version](https://img.shields.io/badge/version-v0__04-blue)
+![Status](https://img.shields.io/badge/status-in_development-yellow)
+![Language](https://img.shields.io/badge/language-C++11-blue)
+![OpenGL](https://img.shields.io/badge/OpenGL-3.3+-orange)
+
 In this version, there are a few objectives for the project:
 - Make sense of the core engine :heavy_check_mark:
 - Sketch a preliminary documentation :o:
-	- Camera :heavy_check_mark:
-	- IBO´s, VBO´s, VBL´s and VAO´s :heavy_check_mark:
-	- Texture :o:
-	- Shaders
-	- Renderer
+	- Core
+		- Camera :heavy_check_mark:
+		- IBO´s, VBO´s, VBL´s and VAO´s :heavy_check_mark:
+		- Texture :x:
+		- Shaders :heavy_check_mark:
+		- Renderer :heavy_check_mark:
 
-	- ImgLoader
-	- Entity
-	- Sprite-Renderer
-	- Bitmap-Font
-	- Freetype
-- Consolidate the core engine features with the Entity class
+	- World
+		- Things
+		- Entity
+		- Mesh
+		- Model
+
+	- Modules
+		- ImgLoader
+		- Bitmap-Font :x:
+		- Freetype :x:
+- Consolidate the core engine features with the Entity class :heavy_check_mark:
 
 This README by itself will be used as such sketch in order to facilitate future understanding of the inner workings of the engine. Thus:
 
@@ -59,7 +70,7 @@ void ProcessMouseMovement(float xOffset, float yOffset, GLboolean constrainPitch
 void ProcessMouseScroll(float yOffset)
 ```
 
-ProcessKeyBoard() expects a direction from the Camera_Movement enum: *FORWARD*, *BACKWARD*, *LEFT*, *RIGHT*.
+`ProcessKeyBoard()` expects a direction from the Camera_Movement enum: *FORWARD*, *BACKWARD*, *LEFT*, *RIGHT*.
 
 >[!NOTE]
 >:warning: The camera class __does not define which key is responsible for each direction__, that must be handled by the user´s code. A valid diretion command would look as follows:
@@ -69,8 +80,8 @@ if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 	camera.ProcessKeyboard(FORWARD, Renderer::GetDeltaTime());
 ```
 
-ProcessMouseMovement() updates the camera angles based on mouse delta (how much it moved between renderings).\
-ProcessMouseScroll() acts like a vertical camera shift, changing the value of y position.
+`ProcessMouseMovement()` updates the camera angles based on mouse delta (how much it moved between renderings).\
+`ProcessMouseScroll()` acts like a vertical camera shift, changing the value of y position.
 >[!CAUTION]
 >The Pitch is constrained by defaut to ±89° to prevent gimbal lock, but can be deactivated by setting *constrainPitch* as *`true`*.
 
@@ -226,6 +237,82 @@ Following is a list of possible variables for passing and getting withouth error
 
 ---
 ### Renderer
+This is the core directly responsible for issuing Draw Calls to the GPU. __It is implemented as a static class managing global rendering states__, including time tracking, space transformations, and rendering mode(2D/3D). Following are the configuration functions to be used:
+
+- `SetRender3D()`:
+Enables or disables 3D rendering mode. When `true`, the renderer applies the projections, view, and model matrices. When `false`, rendering occurs directly in screen space.
+- `SetProjection(const glm::mat4&)`, `SetView(const glm::mat4&)`, `SetModel(const glm::mat4&)`:
+	- __Projection__: Perspective or orthographic camera lens;
+	- __View__: Camera transformation (position and orientation)
+	- __Model__: Object (mesh/ object) transformation in world space.
+- `GetLastFrame()`:
+Returns the time elapsed (in seconds) since the last frame rendered;
+- `GetDeltaTime()`:
+Returns the time difference -delta- (in seconds) between the current frame and the last rendered frame.
+
+>[!Warning]
+>As of v0_04: Although `SetRender3D()` defines if matrices are used internaly, __the appropriate OpenGL state must be configured by the user__ to ensure proper rendering (e.g.: `glEnable(DEPTH_TEST)` is necessary for correct 3D depth handling).
+
+>[!Caution]
+>As of v0_04: `FrameTimeTracker()` __must be called once per frame__ (typically at the start of the render loop) correctly update both  `GetLastFrame()` and `GetDeltaTime()` otherwise they´ll become outdated with every render call.
+
+- `RenderConfig(const float r = 0.0f, const float& g = 0.0f, const float& b = 0.0f, const float& a = 0.0f)`:
+Sets the background color using normalized range `[0.0, 1.0]` RGBA values. Higher values will clamp to maximum saturation `[1.0]`. A default call with no parameters results in a black background.
+
+- `Render()`:
+Core rendering function responsible for drawing things __from text to GUI elements and models__  on screen. It should be called by passing references to a *VAO*, *IBO* and a *Shader* objects. 
+
+Following is and example of the simplest call for rendering an object using only the core engine features (from v0_04):
+
+```C++
+// vertex and buffers configurations -----------------------------------------
+VertexArray example_va;
+//VAO configuration with VBOs, VBLs and/or meshes
+IndexBuffer example_ib(&data[0], data.size());
+
+// Shader configurations -----------------------------------------
+Shader example_shader(
+		"example_shader", 
+		"res\\shaders\\example_shader.vert", 
+		"res\\shaders\\example_shader.frag");
+// Shader uniforms setup
+
+// Render loop (happens every frame) -----------------------------------------
+while (!glfwWindowShouldClose(window)) {
+	// Frame time tracker
+	Renderer::FrameTimeTracker();
+
+	// Space configurations and rendering
+	Renderer::SetRender3D(true);
+	Renderer::RenderConfig();
+	glEnable(GL_DEPTH_TEST);
+
+	// World config (Projection setup)
+	glm::mat4 projection3D = glm::perspective(
+		glm::radians(camera.Zoom), 
+		(float)screenWidth / (float)screenHeight, 
+		0.1f, 100.0f);
+	Renderer::SetProjection(projection3D);
+
+	// Camera config (View)
+	glm::mat4 view3D = camera.GetViewMatrix();
+	Renderer::SetView(view3D);
+	example_shader.SetUniform("viewPos", camera.Position);
+
+	// Model positioning
+	glm::mat4 model3D = glm::mat4(1.0f);
+	Renderer::SetModel(model3D);
+
+	// Draw call
+	example_va.Bind();
+	Renderer::Render(example_va, example_ib, example_shader);
+
+	// Check and call events and swap the buffers
+	glfwSwapBuffers(window);
+	glfwPollEvents();
+}
+
+```
 
 ## World:
 ### Things
@@ -237,10 +324,14 @@ Following is a list of possible variables for passing and getting withouth error
 ### Model and Mesh
 
 ## Modules:
+### ImgLoader
+
 ### Bitmap Font
+__WILL BE REFACTORED ON V0_05__
 
 ---
 ### Freetype Font
+__WILL BE REFACTORED ON V0_05__
 
 # References
 External sources:

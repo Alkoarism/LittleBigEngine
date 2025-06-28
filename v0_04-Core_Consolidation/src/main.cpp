@@ -285,6 +285,9 @@ int main() {
 		"res\\shaders\\test.vert", 
 		"res\\shaders\\test.frag");
 
+	Shader use_check;
+	use_check.SetUniform("random", glm::vec3(1.0f));
+
 	test_shader.SetUniform("objectColor", glm::vec3(1.0f, 0.5f, 0.31f));
 	test_shader.SetUniform("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
 

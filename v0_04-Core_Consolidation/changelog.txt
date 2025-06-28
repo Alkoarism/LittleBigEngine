@@ -1,3 +1,10 @@
+[2025-06-28 10:38:31] v0_04_01_01: Given up on shadere error handling
+[2025-06-28 10:37:49] v0_04_01_01: Another try at Shader compilation error handling
+[2025-06-28 10:33:41] v0_04_01_01: Testing Try Catch on shader class compilation process
+[2025-06-28 10:27:18] v0_04_01_01: Test: Setting Uniforms on a uncompiled shader program
+[2025-06-28 10:23:22] v0_04_01_01: Added Runtime Guard-rail for undefined shader compilation
+[2025-06-28 09:42:03] v0_04_01_01: Testing Shader Behaviour
+[2025-06-28 09:13:40] v0_04_01_01: Removed Freetype outdated DLL from root project
 [2025-06-26 13:52:39] v0_04_01_14: Finished skeleton of Model, Entity and Mesh classes (The renderer Draws)
 [2025-06-22 12:22:31] v0_04_01_13: Separation of concerns: Who draws? -> Entity; How to draw? -> Model;
 [2025-06-22 11:33:40] v0_04_01_12: Finished first version of Entity class

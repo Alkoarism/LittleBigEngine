@@ -34,6 +34,9 @@ void Shader::Compile(const char* vShaderCode, const char* fShaderCode) {
     glCompileShader(fragment);
     CheckCompileErrors(fragment, "FRAGMENT");
 
+    if (m_shaderID != 0){
+        Release();
+    }
     m_shaderID = glCreateProgram();
     glAttachShader(m_shaderID, vertex);
     glAttachShader(m_shaderID, fragment);

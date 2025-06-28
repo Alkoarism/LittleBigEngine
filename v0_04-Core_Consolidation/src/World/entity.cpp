@@ -8,7 +8,7 @@ Entity::Entity(glm::vec3 pos, glm::vec3 size, glm::vec3 color)
     :   position(pos), size(size), color(color),
         rotation(0.0f), active(true){ }
 
-const glm::mat4& Entity::GetModelMatrix() const {
+const glm::mat4 Entity::GetModelMatrix() const {
     glm::mat4 model = glm::mat4(1.0f);
     model = glm::translate(model, this->position);
 
