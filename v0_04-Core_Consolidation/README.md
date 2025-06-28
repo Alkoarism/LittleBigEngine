@@ -17,7 +17,7 @@ In this version, there are a few objectives for the project:
 
 This README by itself will be used as such sketch in order to facilitate future understanding of the inner workings of the engine. Thus:
 
-## Development Plan Notes
+# Development Plan Notes
 - v0.04: README refactoring
 - v0.04: Core engine consolidation
 
@@ -36,12 +36,12 @@ This README by itself will be used as such sketch in order to facilitate future 
 - v0.05.06: Implement sound class
 - v0.05.07: Inclusion of sound class as part of the core engine
 
-## Core engine Documentation
+# Core engine Documentation
 The engine is structured mainly with an DOP desing in mind.
 Here are the purpose and usage of some of the classes:
 
-### Core Engine:
-#### - Camera
+## Core Engine:
+### - Camera
 This subsystem implements a 3D free-view camera with pitch and yaw controls based on 3 dimensional vectors. The class can be constructed in two ways:
 
 ```C++
@@ -88,7 +88,8 @@ The following variables are public and available for forced changes if needed:
 - float MouseSensitivity;
 - float Zoom;
 
-#### - VAO´s, VBO´s, VBL´s and IBO´s:
+---
+### - VAO´s, VBO´s, VBL´s and IBO´s:
 The idea behind these Buffer Objects is to encase complexity into ease of usage. The pipeline becomes simple and the pratical usage comes with the resulting VAO:
 
 __Pass vertex data to VBO | Describe VBO data on a VBL -> Gather everything into a single VAO | Define VAO with IBO -> Pass info to GPU__
@@ -179,19 +180,30 @@ cube_va.AddBuffer(cube_vb, cube_vbl);
 IndexBuffer ib(&indices[0], indices.size());
 ```
 
-#### Texture
+---
+### Texture
+__WILL BE REFACTORED ON V0_05__
 
-#### Shader
-#### Renderer
+---
+### Shader
 
-### World:
-#### Things
-#### Entity
-#### Model and Mesh
+---
+### Renderer
 
-### Modules:
-#### Bitmap Font
-#### Freetype Font
+## World:
+### Things
+
+---
+### Entity
+
+---
+### Model and Mesh
+
+## Modules:
+### Bitmap Font
+
+---
+### Freetype Font
 
 # References
 External sources:
