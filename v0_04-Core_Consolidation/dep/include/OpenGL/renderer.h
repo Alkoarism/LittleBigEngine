@@ -18,12 +18,6 @@ public:
 		const float& b = 0.0f, const float& a = 0.0f);
 	static void FrameTimeTracker();
 
-	static Shader& LoadShader
-	(const std::string name, const char* vertPath, const char* fragPath);
-	static Texture& LoadTexture(std::string name);
-	static Texture& LoadTexture
-	(std::string name, const char* file, bool flipImage);
-
 	static void SetRender3D(const bool m) { render3D = m; }
 	static void SetProjection(const glm::mat4& p) { projection = p; }
 	static void SetView(const glm::mat4& v) { view = v; }
@@ -31,9 +25,6 @@ public:
 
 	static float GetLastFrame() { return lastFrame; }
 	static float GetDeltaTime() { return deltaTime; }
-	static Shader& GetShader(const std::string name);
-	static Texture& GetTexture(const std::string name);
-
 private:
 	static bool render3D;
 	static float lastFrame;
@@ -41,9 +32,6 @@ private:
 	static glm::mat4 projection;
 	static glm::mat4 view;
 	static glm::mat4 model;
-
-	static std::map<std::string, Shader> shaders;
-	static std::map<std::string, Texture> textures;
 };
 
 #endif

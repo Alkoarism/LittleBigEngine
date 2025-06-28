@@ -33,7 +33,7 @@ public:
 
 	template<typename T>
 	void Push(const int count) {
-		static_assert(false);
+		static_assert(sizeof(T) == 0, "ERROR::VERTEXBUFFERLAYOUT::Unsupported_type");
 	}
 
 	inline const std::vector<VertexAttribute> GetElements() const { return m_Elements; }

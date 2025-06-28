@@ -1,0 +1,21 @@
+[2025-06-28 10:38:31] v0_04_01_01: Given up on shadere error handling
+[2025-06-28 10:37:49] v0_04_01_01: Another try at Shader compilation error handling
+[2025-06-28 10:33:41] v0_04_01_01: Testing Try Catch on shader class compilation process
+[2025-06-28 10:27:18] v0_04_01_01: Test: Setting Uniforms on a uncompiled shader program
+[2025-06-28 10:23:22] v0_04_01_01: Added Runtime Guard-rail for undefined shader compilation
+[2025-06-28 09:42:03] v0_04_01_01: Testing Shader Behaviour
+[2025-06-28 09:13:40] v0_04_01_01: Removed Freetype outdated DLL from root project
+[2025-06-26 13:52:39] v0_04_01_14: Finished skeleton of Model, Entity and Mesh classes (The renderer Draws)
+[2025-06-22 12:22:31] v0_04_01_13: Separation of concerns: Who draws? -> Entity; How to draw? -> Model;
+[2025-06-22 11:33:40] v0_04_01_12: Finished first version of Entity class
+[2025-06-22 10:19:14] v0_04_01_11: Moved VAOs to Entity class
+[2025-06-20 13:10:46] v0_04_01_10: First draft of simplified Mesh Class
+[2025-06-20 09:50:43] v0_04_01_09: Completely removed 3D classes (mesh / ObjLoader)
+[2025-06-20 08:28:17] v0_04_01_08: Converted Assimp loader to Obj loader
+[2025-06-18 13:45:52] v0_04_01_07: Proper set up of assimp´s library and includes
+[2025-06-18 13:44:34] v0_04_01_06: Properly sat up assimp´s librari
+[2025-06-16 11:56:55] v0_04_01_05: Added Assimp to include path
+[2025-06-16 11:29:57] v0_04_01_04: Added a sketch for the Entity Class
+[2025-06-14 11:45:17] v0_04_01_03: Removed resources from renderer and moved to "Things" generic global resource storage class
+[2025-06-14 10:49:17] v0_04_01_02: Created World folder to sort between Modules, OpenGL and Scene related classes
+[2025-06-12 11:57:23] v0_04_01_01: Final test for deployment of new changelog file

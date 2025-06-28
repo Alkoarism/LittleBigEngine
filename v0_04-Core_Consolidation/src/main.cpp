@@ -1,8 +1,11 @@
 #include "OpenGL/renderer.h"
+#include "World/things.h"
 #include "OpenGL/camera.h"
 
 #include <ft2build.h>
 #include FT_FREETYPE_H
+
+#include "World/mesh.h"
 
 #include "Modules/glyphLoader/bitmap_font.h"
 
@@ -105,7 +108,7 @@ int main() {
 		}
 
 		//generate texture
-		Texture& texture = Renderer::LoadTexture("Freetype_" + std::to_string(c));
+		Texture& texture = Things::LoadTexture("Freetype_" + std::to_string(c));
 		texture.type = GL_TEXTURE_2D;
 		texture.format = GL_RED;
 		texture.Load(
@@ -138,7 +141,7 @@ int main() {
 		0.0f, static_cast<float>(screenHeight), 
 		0.0f, static_cast<float>(screenWidth));
 
-	Shader& freetype2D = Renderer::LoadShader(
+	Shader& freetype2D = Things::LoadShader(
 		"freetype2D",
 		"res\\shaders\\main2D.vert",
 		"res\\shaders\\freetype2D.frag"
@@ -146,7 +149,7 @@ int main() {
 	freetype2D.SetUniform("projection", projection);
 	freetype2D.SetUniform("model", model);
 
-	Shader& bitmap2D = Renderer::LoadShader(
+	Shader& bitmap2D = Things::LoadShader(
 		"bitmap2D",
 		"res\\shaders\\main2D.vert",
 		"res\\shaders\\bitmap2D.frag"
@@ -166,7 +169,7 @@ int main() {
 	};
 	IBO.reset(new IndexBuffer(textIndices, 6));
 
-	BitmapFont font(bitmap2D, Renderer::LoadTexture("BitmapTexture"));
+	BitmapFont font(bitmap2D, Things::LoadTexture("BitmapTexture"));
 	font.Load("res\\bitmap\\timesNewRoman.bff");
 	//*/
 
@@ -252,25 +255,19 @@ int main() {
 	// vertex and buffers configurations -----------------------------------------
 	VertexArray light_va, cube_va;
 
+	Mesh lightMesh(light_vData, std::vector<unsigned int>{3});
 	light_va.Bind();
-	VertexBuffer light_vb(light_vData.data(), sizeof(decltype(light_vData[0])) * light_vData.size());
-	VertexBufferLayout light_vbl;
-	light_vbl.Push<float>(3);
-	light_va.AddBuffer(light_vb, light_vbl);
+	light_va.AddBuffer(lightMesh.GetVertexData(), lightMesh.GetVertexLayout());
 	
+	Mesh cubeMesh(cube_vData, std::vector<unsigned int>{3,3,2});
 	cube_va.Bind();
-	VertexBuffer cube_vb(cube_vData.data(), sizeof(decltype(cube_vData[0])) * cube_vData.size());
-	VertexBufferLayout cube_vbl;
-	cube_vbl.Push<float>(3);
-	cube_vbl.Push<float>(3);
-	cube_vbl.Push<float>(2);
-	cube_va.AddBuffer(cube_vb, cube_vbl);
+	cube_va.AddBuffer(cubeMesh.GetVertexData(), cubeMesh.GetVertexLayout());
 
 	IndexBuffer ib(&vertexIndices[0], vertexIndices.size());
 	//*/
 
 	// texture handling ----------------------------------------------------------
-	Texture& container = Renderer::LoadTexture("container", "res\\textures\\container.jpg", true);
+	Texture& container = Things::LoadTexture("container", "res\\textures\\container.jpg", true);
 
 	container.SetPar(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	container.SetPar(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -278,15 +275,18 @@ int main() {
 	container.SetPar(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	// initialization before rendering -------------------------------------------
-	Shader& light_shader = Renderer::LoadShader(
+	Shader& light_shader = Things::LoadShader(
 		"light_shader", 
 		"res\\shaders\\lightSource.vert", 
 		"res\\shaders\\lightSource.frag");
 	
-	Shader& test_shader = Renderer::LoadShader(
+	Shader& test_shader = Things::LoadShader(
 		"test_shader", 
 		"res\\shaders\\test.vert", 
 		"res\\shaders\\test.frag");
+
+	Shader use_check;
+	use_check.SetUniform("random", glm::vec3(1.0f));
 
 	test_shader.SetUniform("objectColor", glm::vec3(1.0f, 0.5f, 0.31f));
 	test_shader.SetUniform("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
