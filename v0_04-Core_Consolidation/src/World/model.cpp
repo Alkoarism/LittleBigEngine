@@ -1,7 +1,7 @@
 #include "World/model.h"
 
 Model::Model() {
-
+    VertexArray m_VAO;
 }
 
 Model::~Model(){

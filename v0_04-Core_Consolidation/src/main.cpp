@@ -251,19 +251,17 @@ int main() {
 		20, 21, 22,		20, 23, 22
 	};
 
-
-	// vertex and buffers configurations -----------------------------------------
-	VertexArray light_va, cube_va;
+	// Model (vertex and buffers) configurations -----------------------------------------
+	Model& lightCube = Things::LoadModel("lightCube");
+	Model& containerCube = Things::LoadModel("containerCube");
 
 	Mesh lightMesh(light_vData, std::vector<unsigned int>{3});
-	light_va.Bind();
-	light_va.AddBuffer(lightMesh.GetVertexData(), lightMesh.GetVertexLayout());
+	lightCube.PushMesh(lightMesh.GetVertexData(), lightMesh.GetVertexLayout());
+	lightCube.SetIndexBuffer(vertexIndices);
 	
 	Mesh cubeMesh(cube_vData, std::vector<unsigned int>{3,3,2});
-	cube_va.Bind();
-	cube_va.AddBuffer(cubeMesh.GetVertexData(), cubeMesh.GetVertexLayout());
-
-	IndexBuffer ib(&vertexIndices[0], vertexIndices.size());
+	containerCube.PushMesh(cubeMesh.GetVertexData(), cubeMesh.GetVertexLayout());
+	containerCube.SetIndexBuffer(vertexIndices);
 	//*/
 
 	// texture handling ----------------------------------------------------------
@@ -329,14 +327,14 @@ int main() {
 		glActiveTexture(GL_TEXTURE0);
 		container.Bind();
 		//test_shader.SetUniform("textColor", glm::vec3(sin(glfwGetTime()), 1.0f, 1.0f));
-		Renderer::Render(cube_va, ib, test_shader);
+		Renderer::Render(containerCube.GetVertexArray(), containerCube.GetIBO(), test_shader);
 
 		glm::vec3 lightPos(1.5 * sin(glfwGetTime()), 1.0f, 1.5 * cos(glfwGetTime()));
 		test_shader.SetUniform("light.position", lightPos);
 		model3D = glm::translate(model3D, lightPos);
 		model3D = glm::scale(model3D, glm::vec3(0.2f));
 		Renderer::SetModel(model3D);
-		Renderer::Render(light_va, ib, light_shader);
+		Renderer::Render(lightCube.GetVertexArray(), lightCube.GetIBO(), light_shader);
 		glDisable(GL_DEPTH_TEST);
 
 		///* Freetype and text related code - Temporarily disabled

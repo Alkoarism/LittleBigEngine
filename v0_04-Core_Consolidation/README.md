@@ -32,8 +32,8 @@ This README by itself will be used as such sketch in order to facilitate future 
 - v0.04: README refactoring
 - v0.04: Core engine consolidation
 	- v0.04.00: Sketch a working example of usage of the current features :heavy_check_mark:
-	- v0.04.01: Consolidate Vertex, Texture and Shader Data with Entity class :o:
-	- v0.04.02: Rebuild Texture Class
+	- v0.04.01: Consolidate Vertex data with Entity, Model and Mesh classes :heavy_check_mark:
+	- v0.04.02: Rebuild Texture Class, Expand on the abstraction of Entity class :o:
 
 - v0.05: Module and Third party resources consolidation
 	- v0.05.00: Add modular support for classes at compile time

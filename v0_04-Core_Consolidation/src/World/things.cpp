@@ -1,7 +1,7 @@
 #include "World/things.h"
 
 Shader& Things::LoadShader
-	(const std::string name, const char* vertPath, const char* fragPath) {
+	(const std::string& name, const char* vertPath, const char* fragPath) {
 	
     std::string vertexCode;
     std::string fragmentCode;
@@ -30,57 +30,73 @@ Shader& Things::LoadShader
         std::cout << "ERROR::SHADER::FILE_TO_LOAD_FILE" << std::endl;
     }
 
-    m_Shaders.emplace(name, Shader());
-    m_Shaders[name].Compile(vertexCode.c_str(), fragmentCode.c_str());
-    return m_Shaders[name];
+    m_shaders.emplace(name, Shader());
+    m_shaders[name].Compile(vertexCode.c_str(), fragmentCode.c_str());
+    return m_shaders[name];
 }
 
 Texture& Things::LoadTexture
-    (std::string name, const char* file, bool flipImage) {
+    (const std::string& name, const char* file, bool flipImage) {
 
-    m_Textures.emplace(name, Texture());
+    m_textures.emplace(name, Texture());
+    Texture& texture = m_textures[name];
+    
     ImgLoader img(file);
     
     if (img.GetLog() == nullptr) {
         switch(img.GetChannels()){
-            case 3: m_Textures.at(name).format = GL_RGB; break;
-            case 4: m_Textures.at(name).format = GL_RGBA; break;
-            default: m_Textures.at(name).format = GL_RGB; break;
+            case 3: texture.format = GL_RGB; break;
+            case 4: texture.format = GL_RGBA; break;
+            default: texture.format = GL_RGB; break;
         }
-        m_Textures.at(name).Load(img.GetData(), img.GetWidth(), img.GetHeight());
+        texture.Load(img.GetData(), img.GetWidth(), img.GetHeight());
     }
     else {
         std::cout << "ERROR::TEXTURE::FAILED_TO_LOAD_TEXTURE: "
             << name << "\n" 
             << "->ERROR_CODE: " << img.GetLog() << std::endl;
     }
-    return m_Textures.at(name);
+    return texture;
 }
 
-Texture& Things::LoadTexture(std::string name) {
-    m_Textures.emplace(name, Texture());
-    return m_Textures.at(name);
+Texture& Things::LoadTexture(const std::string& name) {
+    return m_textures[name];
 }
 
-Shader& Things::GetShader(const std::string name) {
+Model& Things::LoadModel(const std::string& name) {
+    return m_models[name];
+}
+
+Shader& Things::GetShader(const std::string& name) {
     try {
-        return m_Shaders.at(name);
+        return m_shaders.at(name);
     }
-    catch (std::exception e) {
-        std::cout << "ERROR::RENDERER::SHADER::FILE_NAME_NOT_FOUND: "
+    catch (const std::out_of_range& e) {
+        std::cout << "ERROR::THINGS::SHADER::FILE_NAME_NOT_FOUND: "
             << name << std::endl;
     }
 }
 
-Texture& Things::GetTexture(const std::string name) {
+Texture& Things::GetTexture(const std::string& name) {
     try {
-        return m_Textures.at(name);
+        return m_textures.at(name);
     }
-    catch (std::exception e) {
-        std::cout << "ERROR::RENDERER::TEXTURE::FILE_NAME_NOT_FOUND: "
+    catch (const std::out_of_range& e) {
+        std::cout << "ERROR::THINGS::TEXTURE::FILE_NAME_NOT_FOUND: "
             << name << std::endl;
     }
 }
 
-std::map<std::string, Shader> Things::m_Shaders;
-std::map<std::string, Texture> Things::m_Textures;
+Model& Things::GetModel(const std::string& name) {
+    try {
+        return m_models.at(name);
+    }
+    catch (const std::out_of_range& e) {
+        std::cout << "ERROR::THINGS::MODEL::FILE_NAME_NOT_FOUND: "
+            << name << std::endl;
+    }
+}
+
+std::map<std::string, Shader> Things::m_shaders;
+std::map<std::string, Texture> Things::m_textures;
+std::map<std::string, Model> Things::m_models;

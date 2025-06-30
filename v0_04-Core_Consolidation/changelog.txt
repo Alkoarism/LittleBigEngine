@@ -1,3 +1,12 @@
+[2025-06-30 11:46:56] v0_04_01_31: Added example of usage of Models via Things container
+[2025-06-30 11:20:05] v0_04_01_30: Added GetModel function to Things
+[2025-06-30 11:19:10] v0_04_01_29: Added load and get functions for models in Thing
+[2025-06-30 10:55:27] v0_04_01_28: Changed initialization of m_VAO in Model class
+[2025-06-30 10:52:08] v0_04_01_27: Added m_model container to Things
+[2025-06-30 10:47:28] v0_04_01_26: Fixed upper case mistake on m_shaders and m_textures at Things
+[2025-06-30 10:46:36] v0_04_01_25: Added basic get and load functions for models on Things
+[2025-06-30 10:45:20] v0_04_01_24: Adding Models to Things class
+[2025-06-30 10:20:26] v0_04_01_23: Fixed changelog auto versioning
 [2025-06-30 09:24:39] v0_04_01_22: Changed project folder path
 [2025-06-28 10:38:31] v0_04_01_21: Given up on shader error handling
 [2025-06-28 10:37:49] v0_04_01_20: Another try at Shader compilation error handling
