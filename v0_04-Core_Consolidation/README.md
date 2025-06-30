@@ -1,29 +1,29 @@
 # LittleBigEngine: Core Engine Consolidation
 ![Version](https://img.shields.io/badge/version-v0__04-blue)
 ![Status](https://img.shields.io/badge/status-in_development-yellow)
+![Documentation](https://img.shields.io/badge/documentation-in_development-yellow)
 ![Language](https://img.shields.io/badge/language-C++11-blue)
 ![OpenGL](https://img.shields.io/badge/OpenGL-3.3+-orange)
 
 In this version, there are a few objectives for the project:
 - Make sense of the core engine :heavy_check_mark:
 - Sketch a preliminary documentation :o:
-	- Core
-		- Camera :heavy_check_mark:
-		- IBO´s, VBO´s, VBL´s and VAO´s :heavy_check_mark:
-		- Texture :x:
-		- Shaders :heavy_check_mark:
-		- Renderer :heavy_check_mark:
+	- [Core](#core-engine)
+		- [Camera](#--camera) :heavy_check_mark:
+		- [IBO´s, VBO´s, VBL´s and VAO´s](#--vaos-vbos-vbls-and-ibos) :heavy_check_mark:
+		- [Texture](#texture) :x:
+		- [Shaders](#--shader) :heavy_check_mark:
+		- [Renderer](#--renderer) :heavy_check_mark:
 
-	- World
-		- Things
-		- Entity
-		- Mesh
-		- Model
+	- [World](#world)
+		- [Things](#--things)
+		- [Entity](#--entity)
+		- [Model and Mesh](#--model-and-mesh)
 
-	- Modules
-		- ImgLoader
-		- Bitmap-Font :x:
-		- Freetype :x:
+	- [Modules](#modules)
+		- [ImgLoader](#--imgloader)
+		- [Bitmap-Font](#--bitmap-font) :x:
+		- [Freetype-Font](#--freetype-font) :x:
 - Consolidate the core engine features with the Entity class :heavy_check_mark:
 
 This README by itself will be used as such sketch in order to facilitate future understanding of the inner workings of the engine. Thus:
@@ -31,21 +31,19 @@ This README by itself will be used as such sketch in order to facilitate future 
 # Development Plan Notes
 - v0.04: README refactoring
 - v0.04: Core engine consolidation
-
-- v0.04.00: Sketch a working example of usage of the current features :heavy_check_mark:
-- v0.04.01: Consolidate Vertex, Texture and Shader Data with Entity class :o:
-- v0.04.02: Rebuild Texture Class
+	- v0.04.00: Sketch a working example of usage of the current features :heavy_check_mark:
+	- v0.04.01: Consolidate Vertex, Texture and Shader Data with Entity class :o:
+	- v0.04.02: Rebuild Texture Class
 
 - v0.05: Module and Third party resources consolidation
-
-- v0.05.00: Add modular support for classes at compile time
-- v0.05.01: Rebuild bitmap_font class inheriting from Entity
-- v0.05.02: Add Freetype implementation class inheriting from Entity
-- v0.05.03: Implement Batch rendeding for the text classes
-- v0.05.04: Inclusion of Bitmap and Freetype as modules of the core engine
-- v0.05.05: Add OpenAL sound API
-- v0.05.06: Implement sound class
-- v0.05.07: Inclusion of sound class as part of the core engine
+	- v0.05.00: Add modular support for classes at compile time
+	- v0.05.01: Rebuild bitmap_font class inheriting from Entity
+	- v0.05.02: Add Freetype implementation class inheriting from Entity
+	- v0.05.03: Implement Batch rendeding for the text classes
+	- v0.05.04: Inclusion of Bitmap and Freetype as modules of the core engine
+	- v0.05.05: Add OpenAL sound API
+	- v0.05.06: Implement sound class
+	- v0.05.07: Inclusion of sound class as part of the core engine
 
 # Core engine Documentation
 The engine is structured mainly with an DOP desing in mind.
@@ -192,11 +190,11 @@ IndexBuffer ib(&indices[0], indices.size());
 ```
 
 ---
-### Texture
+### - Texture
 __WILL BE REFACTORED ON V0_05__
 
 ---
-### Shader
+### - Shader
 An object of this class is intended to contain shader programs in the form of OpenGL shader objects and handle its lifetime on the GPU. A shader can be instantiated without arguments for later compilation or hot-swapping (the object will internaly handle destruction of any previously compiled shaders) if needed using the `Compile()` function.
 
 ```C++
@@ -236,7 +234,7 @@ Following is a list of possible variables for passing and getting withouth error
 | `GetUniform()` | `int`, `float` |
 
 ---
-### Renderer
+### - Renderer
 This is the core directly responsible for issuing Draw Calls to the GPU. __It is implemented as a static class managing global rendering states__, including time tracking, space transformations, and rendering mode(2D/3D). Following are the configuration functions to be used:
 
 - `SetRender3D()`:
@@ -315,22 +313,22 @@ while (!glfwWindowShouldClose(window)) {
 ```
 
 ## World:
-### Things
+### - Things
 
 ---
-### Entity
+### - Entity
 
 ---
-### Model and Mesh
+### - Model and Mesh
 
 ## Modules:
-### ImgLoader
+### - ImgLoader
 
-### Bitmap Font
+### - Bitmap Font
 __WILL BE REFACTORED ON V0_05__
 
 ---
-### Freetype Font
+### - Freetype Font
 __WILL BE REFACTORED ON V0_05__
 
 # References
