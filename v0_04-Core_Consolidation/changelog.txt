@@ -1,3 +1,8 @@
+[2025-07-12 13:32:10] v0_04_02_04: Changed textures type and format to private variables
+[2025-07-12 13:07:49] v0_04_02_03: Fixed teture "target" member variable misname (old: type)
+[2025-07-12 13:00:14] v0_04_02_02: Removed Text related code untill v0_05_00
+[2025-07-12 12:48:09] v0_04_02_01: First launch for v0_04_02 - Texture refactoring
+
 [2025-06-30 11:46:56] v0_04_01_31: Added example of usage of Models via Things container
 [2025-06-30 11:20:05] v0_04_01_30: Added GetModel function to Things
 [2025-06-30 11:19:10] v0_04_01_29: Added load and get functions for models in Thing
