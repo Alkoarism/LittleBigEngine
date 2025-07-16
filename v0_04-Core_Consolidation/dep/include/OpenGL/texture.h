@@ -5,7 +5,7 @@
 
 class Texture {
 public:
-	Texture(GLenum target, GLenum format);
+	Texture(const GLenum& target, const GLenum& format);
 	~Texture();
 
 	Texture(const Texture&) = delete;
@@ -22,23 +22,10 @@ public:
 	void Unbind() const;
 
 private:
-	//This variable is mutable to preserve the const behaviour of Bind() while also keeping 
-	//track of changes made in the Texture
-	mutable bool m_updated;
-
 	GLenum m_target;
 	GLenum m_format;
 	GLuint m_textureID;
 	std::map<GLenum, GLenum> m_layout;
-
-	void Update() noexcept {
-		if (!m_updated){
-			for (auto a : m_layout){
-				glTexParameteri(this->m_target, a.first, a.second);
-			}
-		}
-		m_updated = true;
-	}
 
 	void Release() noexcept {
 		glDeleteTextures(1, &m_textureID);

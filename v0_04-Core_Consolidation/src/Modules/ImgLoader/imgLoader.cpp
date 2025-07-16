@@ -3,7 +3,6 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <Modules/imgLoader/stb_image.h>
 #define STBI_FAILURE_USERMSG
-#define STBI_ONLYJPEG
 
 ImgLoader::ImgLoader(const char* location, bool flipImage){
     stbi_set_flip_vertically_on_load(flipImage);

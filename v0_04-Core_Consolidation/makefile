@@ -1,8 +1,7 @@
 .PHONY = all clean
 
 # Includes path
-FREETYPE_INCLUDE := -Idep/include/Modules/glyphLoader/
-INCLUDES := -Idep/include $(FREETYPE_INCLUDE)
+INCLUDES := -Idep/include
 WIN_INCLUDES := -Ldep/lib
 
 # Compilers and linker
@@ -13,8 +12,7 @@ CXX := x86_64-w64-mingw32-g++
 CXXFLAGS := -O2 -static-libstdc++ $(INCLUDES) $(WIN_INCLUDES)
 
 # Flags
-FREETYPE_LIB := -lfreetype
-OPENGLFLAGS := $(FREETYPE_LIB) -lglfw3 -lopengl32 -lgdi32 -luser32 -lkernel32
+OPENGLFLAGS := -lglfw3 -lopengl32 -lgdi32 -luser32 -lkernel32
 #CXXFLAGS := -Wall -Wextra -Werror -g -O2
 
 # Directory structure

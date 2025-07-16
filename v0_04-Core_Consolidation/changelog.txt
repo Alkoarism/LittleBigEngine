@@ -1,3 +1,23 @@
+[2025-07-16 11:39:40] v0_04_02_45: Finished implementing first version of error handling for textures at World level
+[2025-07-16 11:26:40] v0_04_02_44: testing new texture error handling
+[2025-07-16 11:25:56] v0_04_02_43: Added initialization process for engine specific data
+[2025-07-16 11:09:41] v0_04_02_34: Changed error handling of textures to preload of standard checker error patern
+[2025-07-16 09:44:28] v0_04_02_33: Testing sequential imgloading with error on the first
+[2025-07-16 09:43:32] v0_04_02_32: Testing img loading without error handling
+[2025-07-16 09:41:06] v0_04_02_30: Testing error path passing using const char*
+[2025-07-16 09:38:54] v0_04_02_28: Testing destruction of ImgLoader object to get rid of errors stopping proper handling of sequent object creation
+[2025-07-16 09:25:42] v0_04_02_26: Changed Texture error handling on Things to non-recursive version
+[2025-07-16 09:12:32] v0_04_02_23: Another image type testing
+[2025-07-16 09:12:00] v0_04_02_22: Another renaming test
+[2025-07-16 09:11:29] v0_04_02_21: Testing image files renaming
+[2025-07-14 13:45:12] v0_04_02_20: Lots of testing with the error texture loading at Things.h
+[2025-07-14 13:11:51] v0_04_02_16: Fixed container img setting, via binding in Things::LoadTexture
+[2025-07-14 12:50:35] v0_04_02_10: Testing other images as standard error
+[2025-07-14 12:49:11] v0_04_02_09: RemoveSTBI_ONLY_JPEG config from ImgLoader.cpp
+[2025-07-14 12:41:27] v0_04_02_08: Testing things.cpp direct error texture passing
+[2025-07-14 12:37:16] v0_04_02_07: Changed constexpr variables on engine_config to simple const
+[2025-07-14 12:29:27] v0_04_02_06: Fixed non compliant variable declaration in engine_config (char* to std::string)
+[2025-07-14 12:27:13] v0_04_02_05: First successfull compilation after Texture class refactor
 [2025-07-12 13:32:10] v0_04_02_04: Changed textures type and format to private variables
 [2025-07-12 13:07:49] v0_04_02_03: Fixed teture "target" member variable misname (old: type)
 [2025-07-12 13:00:14] v0_04_02_02: Removed Text related code untill v0_05_00

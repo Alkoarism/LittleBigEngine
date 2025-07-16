@@ -2,6 +2,8 @@
 #define THINGS_H
 
 #include "headers.h"
+#include "engine_config.h"
+
 #include "OpenGL/vertex_array.h"
 #include "OpenGL/index_buffer.h"
 #include "OpenGL/shader.h"
@@ -17,7 +19,6 @@ class Things{
 public:
 	static Shader& LoadShader
 	(const std::string& name, const char* vertPath, const char* fragPath);
-	static Texture& LoadTexture(const std::string& name);
 	static Texture& LoadTexture
 	(const std::string& name, const char* file, bool flipImage);
 	static Model& LoadModel(const std::string& name);
@@ -28,7 +29,7 @@ public:
 
 private:
 	static std::map<std::string, Shader> m_shaders;
-	static std::map<std::string, Texture> m_textures;
+	static std::map<std::string, std::unique_ptr<Texture>> m_textures;
     static std::map<std::string, Model> m_models;
 };
 

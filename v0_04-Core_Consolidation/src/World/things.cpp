@@ -38,29 +38,30 @@ Shader& Things::LoadShader
 Texture& Things::LoadTexture
     (const std::string& name, const char* file, bool flipImage) {
 
-    m_textures.emplace(name, Texture());
-    Texture& texture = m_textures[name];
-    
+    if (m_textures.find(name) != m_textures.end()) return *m_textures[name];
+
     ImgLoader img(file);
     
-    if (img.GetLog() == nullptr) {
-        switch(img.GetChannels()){
-            case 3: texture.format = GL_RGB; break;
-            case 4: texture.format = GL_RGBA; break;
-            default: texture.format = GL_RGB; break;
-        }
-        texture.Load(img.GetData(), img.GetWidth(), img.GetHeight());
-    }
-    else {
+    if (img.GetLog() != nullptr){
         std::cout << "ERROR::TEXTURE::FAILED_TO_LOAD_TEXTURE: "
             << name << "\n" 
             << "->ERROR_CODE: " << img.GetLog() << std::endl;
+        assert(m_textures.find(LBE_ERROR_TEXTURE_NAME) != m_textures.end());
+        return *m_textures[LBE_ERROR_TEXTURE_NAME];
     }
-    return texture;
-}
 
-Texture& Things::LoadTexture(const std::string& name) {
-    return m_textures[name];
+    GLenum format;
+    switch(img.GetChannels()){
+        case 3: format = GL_RGB; break;
+        case 4: format = GL_RGBA; break;
+        default: format = GL_RGB; break;
+    }
+    m_textures.emplace(name, new Texture(GL_TEXTURE_2D, format));
+    Texture& texture = *m_textures[name];
+    texture.Bind();
+    texture.Load(img.GetData(), img.GetWidth(), img.GetHeight());
+    
+    return texture;
 }
 
 Model& Things::LoadModel(const std::string& name) {
@@ -79,7 +80,7 @@ Shader& Things::GetShader(const std::string& name) {
 
 Texture& Things::GetTexture(const std::string& name) {
     try {
-        return m_textures.at(name);
+        return *m_textures.at(name);
     }
     catch (const std::out_of_range& e) {
         std::cout << "ERROR::THINGS::TEXTURE::FILE_NAME_NOT_FOUND: "
@@ -98,5 +99,5 @@ Model& Things::GetModel(const std::string& name) {
 }
 
 std::map<std::string, Shader> Things::m_shaders;
-std::map<std::string, Texture> Things::m_textures;
+std::map<std::string, std::unique_ptr<Texture>> Things::m_textures;
 std::map<std::string, Model> Things::m_models;

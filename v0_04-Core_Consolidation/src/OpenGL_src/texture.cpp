@@ -1,15 +1,7 @@
 #include "OpenGL/texture.h"
 
-Texture::Texture(GLenum target, GLenum format) : m_target(target), m_format(format) {
+Texture::Texture(const GLenum& target, const GLenum& format) : m_target(target), m_format(format) {
 	glGenTextures(1, &m_textureID);
-	m_updated = false;
-
-	SetPar(GL_TEXTURE_WRAP_S, GL_REPEAT);
-	SetPar(GL_TEXTURE_WRAP_T, GL_REPEAT);
-	SetPar(GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	SetPar(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-	
-	Bind();
 }
 
 Texture::Texture(Texture&& other) noexcept
@@ -42,12 +34,11 @@ void Texture::Load(const void* texture, const int& width,const int& height) {
 
 void Texture::SetPar(const GLenum& pName, const GLenum& param) {
 	m_layout[pName] = param;
-	m_updated = false;
+	glTexParameteri(m_target, pName, param);
 }
 
 void Texture::Bind() const {
 	glBindTexture(this->m_target, m_textureID);
-	Update();
 }
 
 void Texture::Unbind() const {

@@ -53,6 +53,14 @@ int main() {
 		return -1;
 	}
 
+	// engine initialization -----------------------------------------------------
+	Texture& _error_texture = Things::LoadTexture(LBE_ERROR_TEXTURE_NAME, LBE_ERROR_TEXTURE_PATH, true);
+	_error_texture.SetPar(GL_TEXTURE_WRAP_S, LBE_DEFAULT_TEXTURE_WRAP_S);
+	_error_texture.SetPar(GL_TEXTURE_WRAP_T, LBE_DEFAULT_TEXTURE_WRAP_T);
+	_error_texture.SetPar(GL_TEXTURE_MIN_FILTER, LBE_DEFAULT_TEXTURE_MIN_FILTER);
+	_error_texture.SetPar(GL_TEXTURE_MAG_FILTER, LBE_DEFAULT_TEXTURE_MAG_FILTER);
+
+
 	///* Vertex data testing - Disabled due to texture and shader rebuild
 	// vertices definition -------------------------------------------------------
 	std::vector<float> cube_vData = {

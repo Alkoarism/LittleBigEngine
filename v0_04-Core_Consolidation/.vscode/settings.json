@@ -52,5 +52,6 @@
         "streambuf": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/alkoarism/LittleBigEngine/v0_04-Core_Consolidation/dep/include/glm"
 }
