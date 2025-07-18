@@ -221,7 +221,7 @@ const GLuint GetPar(const GLenum& pName) const
 ```
 Changed pNames are stored internally for later consulting if needed using `GetPar()` function. The method trows a `std::out_of_range` flag if the passed pName was not changed previously.
 
->[!CAUION]
+>[!CAUTION]
 >__Textures must be manually bound using the `Bind()` method before any state change is made (e.g. using `Load()` or `SetPar()`).__ Undefined behaviour will follow if the proper binding is not done.
 
 Following is an example of usage, based on the `ImgLoader` class mentioned above:
