@@ -33,17 +33,16 @@ This README by itself will be used as such sketch in order to facilitate future 
 - v0.04: Core engine consolidation
 	- v0.04.00: Sketch a working example of usage of the current features :heavy_check_mark:
 	- v0.04.01: Consolidate Vertex data with Entity, Model and Mesh classes :heavy_check_mark:
-	- v0.04.02: Rebuild Texture Class, Expand on the abstraction of Entity class :o:
+	- v0.04.02: Rebuild Texture Class, finish documentation :heavy_check_mark:
 
 - v0.05: Module and Third party resources consolidation
-	- v0.05.00: Add modular support for classes at compile time
 	- v0.05.01: Rebuild bitmap_font class inheriting from Entity
-	- v0.05.02: Add Freetype implementation class inheriting from Entity
-	- v0.05.03: Implement Batch rendeding for the text classes
-	- v0.05.04: Inclusion of Bitmap and Freetype as modules of the core engine
-	- v0.05.05: Add OpenAL sound API
-	- v0.05.06: Implement sound class
-	- v0.05.07: Inclusion of sound class as part of the core engine
+    - v0.05.02: Add Freetype implementation class inheriting from Entity
+    - v0.05.03: Add OpenAL sound API
+    - v0.05.04: Implement sound class
+    - v0.05.05: Implement Batch rendeding for the text classes
+    - v0.05.06: Inclusion of Bitmap and Freetype as modules of the core engine
+    - v0.05.07: Inclusion of sound class as part of the core engine
 
 # Core engine Documentation
 The engine is structured mainly with an DOP desing in mind.
@@ -191,7 +190,62 @@ IndexBuffer ib(&indices[0], indices.size());
 
 ---
 ### - Texture
-__WILL BE REFACTORED ON V0_05__
+The texture class is a simplified handler to contain as well as change OpenGL internal states regarding textures. A texture can be instantiated with a `target` and a `format` arguments. Move semantics are supported, allowing safe and efficient transfers of GPU resources. Copying is disabled.
+
+>[!CAUTION]
+>`target` will usually be defined as `GL_TEXTURE_2D` for simple 2D images. For more complex image types the option has remained and the appropriate parameter to be used can be consulted at the [OpenGL](https://registry.khronos.org/OpenGL-Refpages/gl4/html/glTexImage2D.xhtml) doc website.
+
+>[!WARNING]
+>`format` reffers to the format of the pixel data of the loaded image the example bellow shows a simple way to define it using an `ImgLoader` class. This can also be set manually if the number of channels is known.
+
+```C++
+GLenum format;
+switch(img.GetChannels()){
+	case 3: format = GL_RGB; break;		//Colored images (e.g. JPG)
+	case 4: format = GL_RGBA; break;	//Colored images with alpha channel (e.g. PNG)
+	default: format = GL_RGB; break;
+}
+```
+
+These arguments are used when loading an image into GPU memory using the `Load()` method:
+
+```C++
+void Load(const void* imgData, const int& width, const int& height);
+```
+The class provides methods for texture parameter changes `SetPar()` or retrieval `GetPar()` using pName and param pairs (e.g. filtering and wrapping). Currently, only simple scalar parameters are supported:
+
+```C++
+void SetPar(const GLenum& pName, const GLenum& param)
+const GLuint GetPar(const GLenum& pName) const
+
+```
+Changed pNames are stored internally for later consulting if needed using `GetPar()` function. The method trows a `std::out_of_range` flag if the passed pName was not changed previously.
+
+>[!CAUION]
+>__Textures must be manually bound using the `Bind()` method before any state change is made (e.g. using `Load()` or `SetPar()`).__ Undefined behaviour will follow if the proper binding is not done.
+
+Following is an example of usage, based on the `ImgLoader` class mentioned above:
+
+```C++
+ImgLoader img(file);
+
+GLenum format;
+switch(img.GetChannels()){
+	case 3: format = GL_RGB; break;
+	case 4: format = GL_RGBA; break;
+	default: format = GL_RGB; break;
+}
+Texture exampleTexture(GL_TEXTURE_2D, format);
+exampleTexture.Bind(); //Needed before modifying internal states
+exampleTexture.Load(img.GetData(), img.GetWidth(), img.GetHeight());
+
+//As the texture is already bound, there is no need to call Bind() again.
+exampleTexture.SetPar(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+exampleTexture.SetPar(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+exampleTexture.SetPar(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+exampleTexture.SetPar(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+```
 
 ---
 ### - Shader
@@ -314,22 +368,26 @@ while (!glfwWindowShouldClose(window)) {
 
 ## World:
 ### - Things
+__IN ACTIVE DEVELOPMENT__
 
 ---
 ### - Entity
+__IN ACTIVE DEVELOPMENT__
 
 ---
 ### - Model and Mesh
+__IN ACTIVE DEVELOPMENT__
 
 ## Modules:
 ### - ImgLoader
+__TO BE REFACTORED ON V0_05__
 
 ### - Bitmap Font
-__WILL BE REFACTORED ON V0_05__
+__REMOVED TO BE REFACTORED ON V0_05__
 
 ---
 ### - Freetype Font
-__WILL BE REFACTORED ON V0_05__
+__REMOVED TO BE REFACTORED ON V0_05__
 
 # References
 External sources:
