@@ -32,7 +32,7 @@ int main() {
 
 	// glfw: window creation and setup -------------------------------------------
 	GLFWwindow* window = glfwCreateWindow
-		(screenWidth,  screenHeight, "OpenGL LittleBigEngine-v0.04.01", NULL, NULL);
+		(screenWidth,  screenHeight, "OpenGL LittleBigEngine", NULL, NULL);
 	if (!window) {
 		std::cout << "Failed to create GLFW window" << std::endl;
 		glfwTerminate();

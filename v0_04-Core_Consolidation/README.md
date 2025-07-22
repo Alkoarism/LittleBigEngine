@@ -11,7 +11,7 @@ In this version, there are a few objectives for the project:
 	- [Core](#core-engine)
 		- [Camera](#--camera) :heavy_check_mark:
 		- [IBO´s, VBO´s, VBL´s and VAO´s](#--vaos-vbos-vbls-and-ibos) :heavy_check_mark:
-		- [Texture](#texture) :x:
+		- [Texture](#texture) :heavy_check_mark:
 		- [Shaders](#--shader) :heavy_check_mark:
 		- [Renderer](#--renderer) :heavy_check_mark:
 
@@ -29,20 +29,19 @@ In this version, there are a few objectives for the project:
 This README by itself will be used as such sketch in order to facilitate future understanding of the inner workings of the engine. Thus:
 
 # Development Plan Notes
-- v0.04: README refactoring
-- v0.04: Core engine consolidation
-	- v0.04.00: Sketch a working example of usage of the current features :heavy_check_mark:
-	- v0.04.01: Consolidate Vertex data with Entity, Model and Mesh classes :heavy_check_mark:
-	- v0.04.02: Rebuild Texture Class, finish documentation :heavy_check_mark:
-
-- v0.05: Module and Third party resources consolidation
-	- v0.05.01: Rebuild bitmap_font class inheriting from Entity
-    - v0.05.02: Add Freetype implementation class inheriting from Entity
-    - v0.05.03: Add OpenAL sound API
-    - v0.05.04: Implement sound class
-    - v0.05.05: Implement Batch rendeding for the text classes
-    - v0.05.06: Inclusion of Bitmap and Freetype as modules of the core engine
-    - v0.05.07: Inclusion of sound class as part of the core engine
+	- v0.04: Core engine consolidation and README refactoring
+		- Core modules and concern separation
+		- [x] v0.04.00: Sketch a working example of usage of the current features 
+		- [x] v0.04.01: Consolidate Vertex data with Entity, Model and Mesh classes 
+		- [x] v0.04.02: Rebuild Texture Class and finish core modules documentation
+		- Third-Party modules and software
+		- [ ] v0.04.03: Rebuild bitmap_font class as a standalone module
+		- [ ] v0.04.04: Add Freetype implementation class
+		- [ ] v0.04.05: Add OpenAL sound API 
+		- [ ] v0.04.06: Implement sound class
+		- User Interface
+		- [ ] v0.04.07: Improve UI modules (World - modules)
+		- Ship v0.04 Demo (Asteroids clone)
 
 # Core engine Documentation
 The engine is structured mainly with an DOP desing in mind.
