@@ -1,8 +1,10 @@
 #include "OpenGL/renderer.h"
-#include "World/things.h"
 #include "OpenGL/camera.h"
 
+#include "World/things.h"
 #include "World/mesh.h"
+
+#include "Modules/fonts/bitmapFont.h"
 
 // function declarations ------------------------------------------------------
 void processInput(GLFWwindow* window);
@@ -182,7 +184,24 @@ int main() {
 	test_shader.SetUniform("light.ambient", glm::vec3(0.1f, 0.1f, 0.1f));
 	test_shader.SetUniform("light.diffuse", glm::vec3(0.5f, 0.5f, 0.5f));
 	test_shader.SetUniform("light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
+
+	glm::mat4 bitmapModel = glm::mat4(1.0f);
+	glm::mat4 bitmapProjection = glm::ortho(
+	0.0f, static_cast<float>(screenHeight), 
+	0.0f, static_cast<float>(screenWidth));
+
+	Shader& bitmap2D = Things::LoadShader(
+		"bitmap2D",
+		"res\\shaders\\main2D.vert",
+		"res\\shaders\\bitmap2D.frag"
+	);
+	bitmap2D.SetUniform("projection", bitmapProjection);
+	bitmap2D.SetUniform("model", bitmapModel);
 	
+	font.Load("res\\bitmap\\timesNewRoman.bff");
+
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	// render loop (happens every frame) -----------------------------------------
 	while (!glfwWindowShouldClose(window)) {
 		// -> frame time tracker
@@ -222,6 +241,17 @@ int main() {
 		Renderer::Render(lightCube.GetVertexArray(), lightCube.GetIBO(), light_shader);
 		glDisable(GL_DEPTH_TEST);
 		
+		// ---> font rendering
+		glEnable(GL_BLEND);
+		font.SetColor(glm::vec4(
+			sin(glfwGetTime() + (2 * 3.14 / 3)),
+			sin(glfwGetTime()),
+			sin(glfwGetTime() - (2 * 3.14 / 3)),
+			1.0f));
+		font.Print("BitmapFont sample text.", 25.0f, 75.0f, 2.0f);
+		font.Print("(C) LearnOpenGL.com", 540.0f, 495.0f, 1.5f);
+		glDisable(GL_BLEND);
+
 		// -> check and call events and swap the buffers
 		glfwSwapBuffers(window);
 		glfwPollEvents();
