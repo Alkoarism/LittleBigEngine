@@ -1,3 +1,6 @@
+[2025-07-28 12:29:18] v0_04_02_48: Changing Freetype headers to font.h
+[2025-07-28 10:23:41] v0_04_02_47: Added freetype libraries
+[2025-07-28 10:17:02] v0_04_02_46: Included Font class prototype/ Separated Third Party code from personal modules
 [2025-07-16 11:39:40] v0_04_02_45: Finished implementing first version of error handling for textures at World level
 [2025-07-16 11:26:40] v0_04_02_44: testing new texture error handling
 [2025-07-16 11:25:56] v0_04_02_43: Added initialization process for engine specific data

@@ -4,7 +4,7 @@
 #include "World/things.h"
 #include "World/mesh.h"
 
-#include "Modules/fonts/bitmapFont.h"
+#include "Modules/font.h"
 
 // function declarations ------------------------------------------------------
 void processInput(GLFWwindow* window);
@@ -56,12 +56,15 @@ int main() {
 	}
 
 	// engine initialization -----------------------------------------------------
+	// -> error texture fallback
 	Texture& _error_texture = Things::LoadTexture(LBE_ERROR_TEXTURE_NAME, LBE_ERROR_TEXTURE_PATH, true);
 	_error_texture.SetPar(GL_TEXTURE_WRAP_S, LBE_DEFAULT_TEXTURE_WRAP_S);
 	_error_texture.SetPar(GL_TEXTURE_WRAP_T, LBE_DEFAULT_TEXTURE_WRAP_T);
 	_error_texture.SetPar(GL_TEXTURE_MIN_FILTER, LBE_DEFAULT_TEXTURE_MIN_FILTER);
 	_error_texture.SetPar(GL_TEXTURE_MAG_FILTER, LBE_DEFAULT_TEXTURE_MAG_FILTER);
 
+	// -> font loading
+	Font _font_times_new_roman("res\\fonts\\Times-New-Roman.ttf");
 
 	///* Vertex data testing - Disabled due to texture and shader rebuild
 	// vertices definition -------------------------------------------------------
@@ -185,20 +188,6 @@ int main() {
 	test_shader.SetUniform("light.diffuse", glm::vec3(0.5f, 0.5f, 0.5f));
 	test_shader.SetUniform("light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
 
-	glm::mat4 bitmapModel = glm::mat4(1.0f);
-	glm::mat4 bitmapProjection = glm::ortho(
-	0.0f, static_cast<float>(screenHeight), 
-	0.0f, static_cast<float>(screenWidth));
-
-	Shader& bitmap2D = Things::LoadShader(
-		"bitmap2D",
-		"res\\shaders\\main2D.vert",
-		"res\\shaders\\bitmap2D.frag"
-	);
-	bitmap2D.SetUniform("projection", bitmapProjection);
-	bitmap2D.SetUniform("model", bitmapModel);
-	
-	font.Load("res\\bitmap\\timesNewRoman.bff");
 
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -243,13 +232,6 @@ int main() {
 		
 		// ---> font rendering
 		glEnable(GL_BLEND);
-		font.SetColor(glm::vec4(
-			sin(glfwGetTime() + (2 * 3.14 / 3)),
-			sin(glfwGetTime()),
-			sin(glfwGetTime() - (2 * 3.14 / 3)),
-			1.0f));
-		font.Print("BitmapFont sample text.", 25.0f, 75.0f, 2.0f);
-		font.Print("(C) LearnOpenGL.com", 540.0f, 495.0f, 1.5f);
 		glDisable(GL_BLEND);
 
 		// -> check and call events and swap the buffers

@@ -12,7 +12,7 @@
 #include "World/entity.h"
 #include "World/model.h"
 
-#include "Modules/imgLoader/imgLoader.h"
+#include "Modules/imgLoader.h"
 
 //Stores all the data directly managed by the Engine on a currently running program
 class Things{

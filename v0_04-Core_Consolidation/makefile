@@ -3,16 +3,18 @@
 # Includes path
 INCLUDES := -Idep/include
 WIN_INCLUDES := -Ldep/lib
+THIRD_PARTY_INCLUDES := -Idep/include/ThirdParty
 
 # Compilers and linker
 CC := x86_64-w64-mingw32-gcc
 CCFLAGS := -O2 $(INCLUDES)
 
 CXX := x86_64-w64-mingw32-g++
-CXXFLAGS := -O2 -static-libstdc++ $(INCLUDES) $(WIN_INCLUDES)
+CXXFLAGS := -O2 -static-libstdc++ $(INCLUDES) $(WIN_INCLUDES) $(THIRD_PARTY_INCLUDES)
 
 # Flags
-OPENGLFLAGS := -lglfw3 -lopengl32 -lgdi32 -luser32 -lkernel32
+FREETYPE_LIB := -lfreetype
+OPENGLFLAGS := $(FREETYPE_LIB) -lglfw3 -lopengl32 -lgdi32 -luser32 -lkernel32
 #CXXFLAGS := -Wall -Wextra -Werror -g -O2
 
 # Directory structure

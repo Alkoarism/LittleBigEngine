@@ -1,7 +1,7 @@
-#include "Modules/imgLoader/imgLoader.h"
+#include "Modules/imgLoader.h"
 
 #define STB_IMAGE_IMPLEMENTATION
-#include <Modules/imgLoader/stb_image.h>
+#include <stb_image.h>
 #define STBI_FAILURE_USERMSG
 
 ImgLoader::ImgLoader(const char* location, bool flipImage){
