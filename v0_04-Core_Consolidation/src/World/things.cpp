@@ -52,6 +52,7 @@ Texture& Things::LoadTexture
 
     GLenum format;
     switch(img.GetChannels()){
+        case 1: format = GL_RED; break;
         case 3: format = GL_RGB; break;
         case 4: format = GL_RGBA; break;
         default: format = GL_RGB; break;

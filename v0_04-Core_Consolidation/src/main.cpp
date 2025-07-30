@@ -65,8 +65,8 @@ int main() {
 
 	// -> font loading
 	Font _font_times_new_roman("res\\fonts\\Times-New-Roman.ttf");
+	Font _font_lora_regular("res\\fonts\\Lora-Regular.ttf");
 
-	///* Vertex data testing - Disabled due to texture and shader rebuild
 	// vertices definition -------------------------------------------------------
 	std::vector<float> cube_vData = {
 		//vertex			  //Vertex Normal		//texture	r	

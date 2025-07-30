@@ -1,3 +1,8 @@
+[2025-07-30 10:16:43] v0_04_02_53: Added variable BitUnpacking Sizes handling to Texture class
+[2025-07-30 07:39:44] v0_04_02_52: .
+[2025-07-30 07:38:17] v0_04_02_51: .
+[2025-07-30 07:37:00] v0_04_02_50: testing font class
+[2025-07-30 07:27:29] v0_04_02_49: Finished first prototype of class Font´s behaviour
 [2025-07-28 12:29:18] v0_04_02_48: Changing Freetype headers to font.h
 [2025-07-28 10:23:41] v0_04_02_47: Added freetype libraries
 [2025-07-28 10:17:02] v0_04_02_46: Included Font class prototype/ Separated Third Party code from personal modules
