@@ -1,6 +1,7 @@
+[2025-09-10 11:28:43] v0_04_03_01: Compilation test after integration of Bitmap Generator subproject classes
+
+[2025-07-30 22:36:42] v0_04_02_55: Removed unnecessary headers from font.h and font.cpp
 [2025-07-30 10:16:43] v0_04_02_53: Added variable BitUnpacking Sizes handling to Texture class
-[2025-07-30 07:39:44] v0_04_02_52: .
-[2025-07-30 07:38:17] v0_04_02_51: .
 [2025-07-30 07:37:00] v0_04_02_50: testing font class
 [2025-07-30 07:27:29] v0_04_02_49: Finished first prototype of class Font´s behaviour
 [2025-07-28 12:29:18] v0_04_02_48: Changing Freetype headers to font.h
@@ -27,7 +28,7 @@
 [2025-07-14 12:29:27] v0_04_02_06: Fixed non compliant variable declaration in engine_config (char* to std::string)
 [2025-07-14 12:27:13] v0_04_02_05: First successfull compilation after Texture class refactor
 [2025-07-12 13:32:10] v0_04_02_04: Changed textures type and format to private variables
-[2025-07-12 13:07:49] v0_04_02_03: Fixed teture "target" member variable misname (old: type)
+[2025-07-12 13:07:49] v0_04_02_03: Fixed texture "target" member variable misname (old: type)
 [2025-07-12 13:00:14] v0_04_02_02: Removed Text related code untill v0_05_00
 [2025-07-12 12:48:09] v0_04_02_01: First launch for v0_04_02 - Texture refactoring
 

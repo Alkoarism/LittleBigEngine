@@ -1,16 +1,16 @@
 .PHONY = all clean
 
 # Includes path
-INCLUDES := -Idep/include
+THIRDPARTY_INCLUDES := -Idep/include/ThirdParty
+INCLUDES := $(THIRDPARTY_INCLUDES) -Idep/include
 WIN_INCLUDES := -Ldep/lib
-THIRD_PARTY_INCLUDES := -Idep/include/ThirdParty
 
 # Compilers and linker
 CC := x86_64-w64-mingw32-gcc
 CCFLAGS := -O2 $(INCLUDES)
 
 CXX := x86_64-w64-mingw32-g++
-CXXFLAGS := -O2 -static-libstdc++ $(INCLUDES) $(WIN_INCLUDES) $(THIRD_PARTY_INCLUDES)
+CXXFLAGS := -O2 -static-libstdc++ $(INCLUDES) $(WIN_INCLUDES)
 
 # Flags
 FREETYPE_LIB := -lfreetype
