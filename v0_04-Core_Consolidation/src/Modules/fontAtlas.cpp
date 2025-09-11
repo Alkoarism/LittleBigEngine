@@ -64,7 +64,7 @@ FontAtlas::FontAtlas(Font& sourceFont):
         CellData cellData;
         cellData.glyphMetrics = character.metrics;
         cellData.xAtlasOffset = xAtlasPos * m_cellWidth;
-        cellData.yAtlasOffset = m_atlas->GetRows() - ((yAtlasPos + 1) * m_cellHeight);
+        cellData.yAtlasOffset = yAtlasPos * m_cellHeight;
         m_cellDataMap.emplace(characterCode, cellData);
 
         xAtlasPos += 1;

@@ -78,7 +78,7 @@ int main() {
 	_error_texture.SetPar(GL_TEXTURE_MAG_FILTER, LBE_DEFAULT_TEXTURE_MAG_FILTER);
 
 	// -> font loading
-	Font timesNewRoman("res\\fonts\\Times-New-Roman.ttf", 0, 64);
+	Font timesNewRoman("res\\fonts\\Starjout.ttf", 0, 32);
 	fontAtlas = std::make_unique<FontAtlas>(timesNewRoman);
 
 	glm::mat4 fontModel = glm::mat4(1.0f);
@@ -191,6 +191,7 @@ int main() {
 
 	// texture handling ----------------------------------------------------------
 	const Bitmap& atlasBMP = fontAtlas->GetBitmap();
+	fontAtlas->ExportBitmapAtlas("res/bitmap/starjoutAtlas.bmp");
 	
 	Texture atlasTexture(GL_TEXTURE_2D, GL_RED);
 	atlasTexture.Bind();
@@ -283,7 +284,7 @@ int main() {
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glActiveTexture(GL_TEXTURE0);
 		atlasTexture.Bind();
-		RenderText(fontShader, "A lot of glyphs!", 10.0f, 10.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+		RenderText(fontShader, "darthMaul@DeathStar", 10.0f, 20.0f, 1.0f, glm::vec3(1.0f, 1.0f, 0.0f));
 		glDisable(GL_BLEND);
 
 		// -> check and call events and swap the buffers
@@ -350,15 +351,18 @@ void RenderText(Shader& fs, std::string text, float x, float y, float scale, glm
 		float w = characterData.width * scale;
 		float z = characterData.rows * scale;
 
-		//std::cout << "Current character: " << std::to_string(*c) << std::endl;
-		//std::cout << "X Atlas Offset: " << charCellData.xAtlasOffset << std::endl;
-		//std::cout << "Y Atlas Offset: " << charCellData.yAtlasOffset << std::endl;
+		float u = static_cast<float>(charCellData.xAtlasOffset) / fontAtlas->GetBitmap().GetWidth();
+		float v = static_cast<float>(charCellData.yAtlasOffset) / fontAtlas->GetBitmap().GetRows();
+
+		float u1 = static_cast<float>(characterData.width) / fontAtlas->GetBitmap().GetWidth();
+		float v1 = static_cast<float>(characterData.rows) / fontAtlas->GetBitmap().GetRows();
+
 		//update VBO for each character
 		float vertices[4][4] = {
-			{ posX,		posY + z,	0.0f, 0.0f },
-			{ posX,		posY,		0.0f, 1.0f},
-			{ posX + w,	posY,		1.0f, 1.0f},
-			{ posX + w,	posY + z,	1.0f, 0.0f}
+			{ posX,		posY + z,	u,		v },
+			{ posX,		posY,		u,		v + v1},
+			{ posX + w,	posY,		u + u1,	v + v1},
+			{ posX + w,	posY + z,	u + u1,	v}
 		};
 
 		// render glyph texture over quad
