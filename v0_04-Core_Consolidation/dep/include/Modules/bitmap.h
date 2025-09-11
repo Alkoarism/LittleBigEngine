@@ -16,6 +16,7 @@ public:
     const unsigned int GetRows() const {return m_rows;}
     const unsigned int GetWidth() const {return m_width;}
     const unsigned int GetRowSize() const {return m_rowByteSize;}
+    const unsigned char* GetRawData() const {return m_buffer.data();}
 
     void ModifyPixel(const std::vector<unsigned char>& pixelData, const unsigned int xPos, const unsigned int yPos);
     void Export(const std::string path, const std::vector<uint8_t> eightBitColorPalete = {0xFF, 0xFF, 0xFF});

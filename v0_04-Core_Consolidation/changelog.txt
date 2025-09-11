@@ -1,3 +1,20 @@
+[2025-09-10 21:36:30] v0_04_03_33: Rollback of atlas positioning variables
+[2025-09-10 21:33:21] v0_04_03_32: Added atlas texture positioning to char quads
+[2025-09-10 20:47:02] v0_04_03_31: .
+[2025-09-10 20:44:55] v0_04_03_30: Added FontAtlas functinality to Glyph rendering pipeline
+[2025-09-10 20:34:20] v0_04_03_29: Insertion of FontAtlas into the main code
+[2025-09-10 20:30:54] v0_04_03_28: Changed resolution to 600x600
+[2025-09-10 20:28:32] v0_04_03_26: Testing usage of bimap arrays as textures
+[2025-09-10 16:14:34] v0_04_03_25: Working font rendering method
+[2025-09-10 16:06:00] v0_04_03_19: Changed RenderMode for font rendering
+[2025-09-10 15:43:40] v0_04_03_09: Looking for font NullPtr error while creating texture
+[2025-09-10 15:41:50] v0_04_03_08: Rolling back to mod of V3 for testing class by class from the Bitmap Generator project
+[2025-09-10 15:02:13] v0_04_03_07: Changed BitUnpacking Size for textureTNRA
+[2025-09-10 14:59:21] v0_04_03_06: Fixed character advance on x axi
+[2025-09-10 14:54:55] v0_04_03_05: Changed starting character in FontAtlas to 32
+[2025-09-10 14:53:51] v0_04_03_04: Added error catching to FontAtlas GetCharacterData() function
+[2025-09-10 14:38:41] v0_04_03_03: First iteration of RenderText(), same as in V3 with minor mods for new Font Handling classes
+[2025-09-10 13:04:59] v0_04_03_02: Added font related generation code and compiled
 [2025-09-10 11:28:43] v0_04_03_01: Compilation test after integration of Bitmap Generator subproject classes
 
 [2025-07-30 22:36:42] v0_04_02_55: Removed unnecessary headers from font.h and font.cpp

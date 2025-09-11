@@ -1,10 +1,13 @@
 #include "Modules/fontAtlas.h"
 
+#include <iostream>
+#include <stdexcept>
+
 unsigned int FONTATLAS_DEFAULT_COLORDEPTH = 8;  //8 bits per pixel
 unsigned int FONTATLAS_DEFAULT_WIDTH = 10;      //Horizontal cell count
 unsigned int FONTATLAS_DEFAULT_HEIGHT = 10;     //Vertical call count
 
-unsigned int FONTATLAS_DEFAULT_STARTING_ASCII_CHAR = 33;
+unsigned int FONTATLAS_DEFAULT_STARTING_ASCII_CHAR = 32;
 unsigned int FONTATLAS_DEFAULT_ENDING_ASCII_CHAR = 127;
 
 /*
@@ -60,12 +63,13 @@ FontAtlas::FontAtlas(Font& sourceFont):
 
         CellData cellData;
         cellData.glyphMetrics = character.metrics;
-        cellData.atlasPosX = xAtlasPos;
-        cellData.atlasPosY = yAtlasPos;
+        cellData.xAtlasOffset = xAtlasPos * m_cellWidth;
+        cellData.yAtlasOffset = m_atlas->GetRows() - ((yAtlasPos + 1) * m_cellHeight);
         m_cellDataMap.emplace(characterCode, cellData);
 
         xAtlasPos += 1;
         characterCode += 1;
+
     }
 }
 
@@ -76,7 +80,14 @@ FontAtlas(Font sourceFont, const std::vector<unsigned long> customUnicodeCharSet
 */
 
 const CellData& FontAtlas::GetCharacterData(const unsigned long glyph) const{
-    return m_cellDataMap.at(glyph);
+    try{
+        return m_cellDataMap.at(glyph);
+    } catch(const std::out_of_range& error){
+        std::cout << "ERROR::FONTATLAS::FAILED_TO_GET_CHARACTER" << std::endl;
+        std::string _error = error.what() ;
+        _error += " - Failed to find requested character: " + std::to_string(glyph);
+        throw std::out_of_range(_error);
+    }
 }
 
 void FontAtlas::ExportFontAtlas(const std::string path) const{

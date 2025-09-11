@@ -5,6 +5,8 @@
 #include "World/mesh.h"
 
 #include "Modules/font.h"
+#include "Modules/bitmap.h"
+#include "Modules/fontAtlas.h"
 
 // function declarations ------------------------------------------------------
 void processInput(GLFWwindow* window);
@@ -13,13 +15,25 @@ void framebuffer_size_callback(GLFWwindow*, int, int);
 void mouse_callback(GLFWwindow* window, double xPos, double yPos);
 void scroll_callback(GLFWwindow* window, double xOffset, double yOffset);
 
+void RenderText(Shader&, std::string, float, float, float, glm::vec3);
+
 // global variables -----------------------------------------------------------
-const int screenWidth = 600, screenHeight = 800;
+const int screenWidth = 600, screenHeight = 600;
 
 Camera camera(glm::vec3(0.0f, 0.0f, 5.0f));
 float lastX = screenWidth / 2, lastY = screenHeight / 2;
 float fov = 45.0;
 bool firstMouse = true;
+
+struct Character{
+	Glyph ftGlyph;
+};
+
+std::map<char, Character> characters;
+std::unique_ptr<VertexArray> fontVAO;
+std::unique_ptr<VertexBuffer> fontVBO;
+std::unique_ptr<IndexBuffer> fontIBO;
+std::unique_ptr<FontAtlas> fontAtlas;
 
 int main() {
 	// glfw: initialize and configure --------------------------------------------
@@ -64,8 +78,26 @@ int main() {
 	_error_texture.SetPar(GL_TEXTURE_MAG_FILTER, LBE_DEFAULT_TEXTURE_MAG_FILTER);
 
 	// -> font loading
-	Font _font_times_new_roman("res\\fonts\\Times-New-Roman.ttf");
-	Font _font_lora_regular("res\\fonts\\Lora-Regular.ttf");
+	Font timesNewRoman("res\\fonts\\Times-New-Roman.ttf", 0, 64);
+	fontAtlas = std::make_unique<FontAtlas>(timesNewRoman);
+
+	glm::mat4 fontModel = glm::mat4(1.0f);
+	glm::mat4 fontView = glm::mat4(1.0f);
+	glm::mat4 fontProjection = glm::ortho(
+		0.0f, static_cast<float>(screenHeight),
+		0.0f, static_cast<float>(screenWidth));
+	
+	fontVAO = std::make_unique<VertexArray>();
+	fontVBO = std::make_unique<VertexBuffer>(nullptr, sizeof(float) * 4 * 4, GL_DYNAMIC_DRAW);
+	VertexBufferLayout fontVBL;
+	fontVBL.Push<float>(4);
+	fontVAO->AddBuffer(*fontVBO, fontVBL);
+
+	unsigned int fontIndices[] = {
+		0, 1, 2,
+		0, 2, 3
+	};
+	fontIBO = std::make_unique<IndexBuffer>(fontIndices, 6);
 
 	// vertices definition -------------------------------------------------------
 	std::vector<float> cube_vData = {
@@ -144,7 +176,7 @@ int main() {
 		20, 21, 22,		20, 23, 22
 	};
 
-	// Model (vertex and buffers) configurations -----------------------------------------
+	// Model (vertex and buffers) configurations ---------------------------------
 	Model& lightCube = Things::LoadModel("lightCube");
 	Model& containerCube = Things::LoadModel("containerCube");
 
@@ -158,14 +190,32 @@ int main() {
 	//*/
 
 	// texture handling ----------------------------------------------------------
+	const Bitmap& atlasBMP = fontAtlas->GetBitmap();
+	
+	Texture atlasTexture(GL_TEXTURE_2D, GL_RED);
+	atlasTexture.Bind();
+	atlasTexture.SetBitUnpackingSize(1);
+	atlasTexture.SetPar(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	atlasTexture.SetPar(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	atlasTexture.SetPar(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	atlasTexture.SetPar(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	atlasTexture.Load(atlasBMP.GetRawData(), atlasBMP.GetWidth(), atlasBMP.GetRows());
+	
 	Texture& container = Things::LoadTexture("container", "res\\textures\\container.jpg", true);
-
 	container.SetPar(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	container.SetPar(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	container.SetPar(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	container.SetPar(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	// initialization before rendering -------------------------------------------
+	Shader& fontShader = Things::LoadShader(
+		"font2D",
+		"res\\shaders\\main2D.vert",
+		"res\\shaders\\font2D.frag");
+	
+	fontShader.SetUniform("projection", fontProjection);
+	fontShader.SetUniform("model", fontModel);
+
 	Shader& light_shader = Things::LoadShader(
 		"light_shader", 
 		"res\\shaders\\lightSource.vert", 
@@ -188,9 +238,6 @@ int main() {
 	test_shader.SetUniform("light.diffuse", glm::vec3(0.5f, 0.5f, 0.5f));
 	test_shader.SetUniform("light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
 
-
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
 	// render loop (happens every frame) -----------------------------------------
 	while (!glfwWindowShouldClose(window)) {
 		// -> frame time tracker
@@ -201,7 +248,7 @@ int main() {
 
 		// --> space configurations and rendering
 		Renderer::SetRender3D(true);
-		Renderer::RenderConfig();
+		Renderer::RenderConfig(0.4f, 0.4f, 0.4f);
 		glEnable(GL_DEPTH_TEST);
 		
 		// ---> world config
@@ -231,7 +278,12 @@ int main() {
 		glDisable(GL_DEPTH_TEST);
 		
 		// ---> font rendering
+		Renderer::SetRender3D(false);
 		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glActiveTexture(GL_TEXTURE0);
+		atlasTexture.Bind();
+		RenderText(fontShader, "A lot of glyphs!", 10.0f, 10.0f, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 		glDisable(GL_BLEND);
 
 		// -> check and call events and swap the buffers
@@ -281,4 +333,38 @@ void scroll_callback(GLFWwindow* window, double xOffset, double yOffset) {
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 	glViewport(0, 0, width, height);
+}
+
+void RenderText(Shader& fs, std::string text, float x, float y, float scale, glm::vec3 color){
+	fs.SetUniform("textColor", color);
+	fontVAO->Bind();
+
+	std::string::const_iterator c;
+	for (c = text.begin(); c != text.end(); c++){
+		const CellData& charCellData = fontAtlas->GetCharacterData(*c);
+		const GlyphMetrics& characterData = charCellData.glyphMetrics;
+
+		float posX = x + (characterData.xBearing * scale);
+		float posY = y - ((characterData.rows - characterData.yBearing) * scale);
+
+		float w = characterData.width * scale;
+		float z = characterData.rows * scale;
+
+		//std::cout << "Current character: " << std::to_string(*c) << std::endl;
+		//std::cout << "X Atlas Offset: " << charCellData.xAtlasOffset << std::endl;
+		//std::cout << "Y Atlas Offset: " << charCellData.yAtlasOffset << std::endl;
+		//update VBO for each character
+		float vertices[4][4] = {
+			{ posX,		posY + z,	0.0f, 0.0f },
+			{ posX,		posY,		0.0f, 1.0f},
+			{ posX + w,	posY,		1.0f, 1.0f},
+			{ posX + w,	posY + z,	1.0f, 0.0f}
+		};
+
+		// render glyph texture over quad
+		fontVBO->Update(vertices, sizeof(vertices), 0);
+		Renderer::Render(*fontVAO, *fontIBO, fs);
+
+		x += characterData.xAdvance * scale;
+	}
 }

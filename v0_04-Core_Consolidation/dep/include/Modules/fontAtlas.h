@@ -10,8 +10,7 @@
 
 struct CellData{
     GlyphMetrics glyphMetrics;
-    unsigned int atlasPosX;
-    unsigned int atlasPosY;
+    unsigned int xAtlasOffset, yAtlasOffset;
 };
 
 class FontAtlas{
@@ -26,6 +25,7 @@ public:
 	FontAtlas& operator=(FontAtlas&& other) = delete; 
 
     const CellData& GetCharacterData(const unsigned long glyph) const;
+    const Bitmap& GetBitmap() const {return *m_atlas;}
 
     void ExportFontAtlas(const std::string path) const;
     void ExportBitmapAtlas(const std::string path) const;
