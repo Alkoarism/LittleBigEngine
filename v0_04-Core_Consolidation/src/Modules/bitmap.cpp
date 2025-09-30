@@ -1,7 +1,8 @@
 #include "Modules/bitmap.h"
 
 #include <fstream>
-#include <memory>  
+#include <memory>
+#include <iostream>
 
 
 bool    BITMAP_TOP_TO_BOTTOM = true;
@@ -56,16 +57,19 @@ void Bitmap::Export(const std::string path, const std::vector<uint8_t> eightBitC
     
     if (m_colorDepth == 8){
         colorsUsed = 256;
-        importantColors = 256;
 
         RGBQUADArray.reset();
         RGBQUADArray = std::make_unique<std::vector<uint8_t>>(4 * colorsUsed, 0);
 
         for (int i = 0; i < colorsUsed; i++){
             int index = 4 * i;
-            (*RGBQUADArray)[index] = eightBitColorPalete[0] * (i / 255);
-            (*RGBQUADArray)[index + 1] = eightBitColorPalete[1] *  (i / 255);
-            (*RGBQUADArray)[index + 2] = eightBitColorPalete[2] * (i / 255);
+            float normalizedColor = static_cast<float>(i) / static_cast<float>(colorsUsed - 1);
+            uint8_t blue    = static_cast<uint8_t>(normalizedColor * eightBitColorPalete[0]);
+            uint8_t green   = static_cast<uint8_t>(normalizedColor * eightBitColorPalete[1]);
+            uint8_t red     = static_cast<uint8_t>(normalizedColor * eightBitColorPalete[2]);
+            (*RGBQUADArray)[index] = blue;
+            (*RGBQUADArray)[index + 1] = green;
+            (*RGBQUADArray)[index + 2] = red;
             //RGBQUADArrayTemp[index + 3] = 0; Redundant as all values are zeroed at creation
         }
     }
@@ -80,9 +84,9 @@ void Bitmap::Export(const std::string path, const std::vector<uint8_t> eightBitC
         BMPFileHeader.size() + 
         DIBHeader.size() +
         imgDataSize +
-        RGBQUADArray->size();
+        RGBQUADArray->size();  
 
-    memcpy(&BMPFileHeader[2], &sizeOfBMP, sizeof(sizeOfBMP));    
+    memcpy(&BMPFileHeader[2], &sizeOfBMP, sizeof(sizeOfBMP));
 
     // Starting address of the byte where the bitmap image data can be found
     uint32_t pixelDataOffset = BMPFileHeader.size() + DIBHeader.size() + RGBQUADArray->size();
@@ -119,7 +123,6 @@ void Bitmap::Export(const std::string path, const std::vector<uint8_t> eightBitC
 
     // DIB byte padding due to zeroed data - optional, redundant
     memcpy(&DIBHeader[32], &colorsUsed, sizeof(colorsUsed)); // Number of colors in the color pallete (0 defaults to 2^n)
-    memcpy(&DIBHeader[36], &importantColors, sizeof(importantColors)); // Number of important colors used (generally ignored and equals to 0)
 
     // ---------- Data to file output -----------------------------------------
     std::ofstream fileBMP(path, std::ios::binary);
