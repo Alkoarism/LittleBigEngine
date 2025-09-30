@@ -22,8 +22,9 @@ In this version, there are a few objectives for the project:
 
 	- [Modules](#modules)
 		- [ImgLoader](#--imgloader)
-		- [Bitmap-Font](#--bitmap-font) :x:
-		- [Freetype-Font](#--freetype-font) :x:
+		- [Bitmap](#--bitmap)
+		- [Font](#--font)
+		- [FontAtlas](#--fontatlas)
 - Consolidate the core engine features with the Entity class :heavy_check_mark:
 
 This README by itself will be used as such sketch in order to facilitate future understanding of the inner workings of the engine. Thus:
@@ -35,13 +36,14 @@ This README by itself will be used as such sketch in order to facilitate future 
 		- [x] v0.04.01: Consolidate Vertex data with Entity, Model and Mesh classes 
 		- [x] v0.04.02: Rebuild Texture Class and finish core modules documentation
 		- Third-Party modules and software
-		- [ ] v0.04.03: Rebuild bitmap_font class as a standalone module
-		- [ ] v0.04.04: Add Freetype implementation class
+		- [x] v0.04.03: Implement Text loading and handling
+		- [ ] v0.04.04: Better resource manager (Things class family)
 		- [ ] v0.04.05: Add OpenAL sound API 
 		- [ ] v0.04.06: Implement sound class
 		- User Interface
 		- [ ] v0.04.07: Improve UI modules (World - modules)
-		- Ship v0.04 Demo (Asteroids clone)
+		- Ship: Sound + Text Demo
+		- Ship v0.04 Demo
 
 # Core engine Documentation
 The engine is structured mainly with an DOP desing in mind.
@@ -379,18 +381,33 @@ __IN ACTIVE DEVELOPMENT__
 
 ## Modules:
 ### - ImgLoader
-__TO BE REFACTORED ON V0_05__
-
-### - Bitmap Font
-__REMOVED TO BE REFACTORED ON V0_05__
+__IN ACTIVE DEVELOPMENT__
 
 ---
-### - Freetype Font
-__REMOVED TO BE REFACTORED ON V0_05__
+### - Bitmap
+__IN ACTIVE DEVELOPMENT__
+
+---
+### - Font
+__IN ACTIVE DEVELOPMENT__
+
+---
+### - FontAtlas
+__IN ACTIVE DEVELOPMENT__
 
 # References
-External sources:
-1. Bitmap text rendering was made using an implementation of [CBFG](https://github.com/CodeheadUK/CBFG) and his example code with some changes;
-2. [Learn OpenGL](https://learnopengl.com/) book site;
-3. The [Cherno`s youtube channel](https://www.youtube.com/channel/UCQ-W1KE9EYfdxhL6S4twUNw), OpenGL series;
-4. [The FreeType Project](https://freetype.org/) (All rights reserved);
+## Books:
+1. [Learn OpenGL](https://learnopengl.com/) book site;
+2. Game Programming Patterns - Nystrom, R. - 2014
+3. Game Engine Architecture - 3ed - Gregory, J. - 2019
+4. C++ Primer - 5ed - Lippman, S.B.; Lajoire, J.; Moo, B. E. - 2013
+
+## Websites
+1. The first version of the Bitmap text rendering was made using an implementation of [Codehead´s Bitmap Font Generator (CBFG)](https://github.com/CodeheadUK/CBFG) and his example code with some changes
+2. A guide on the engine´s core OpenGL handler was [Cherno`s youtube channel](https://www.youtube.com/channel/UCQ-W1KE9EYfdxhL6S4twUNw)
+3. For the vector-based text loading [FreeType Project API](https://freetype.org/) (All rights reserved) was used with the font class as a thin wrapper
+4. For a throught explanation on the bitmap file format used on this project: [Wikipedia - BMP file format](https://en.wikipedia.org/wiki/BMP_file_format)
+5. The De facto place for looking up official [Bitmap Documentation](https://learn.microsoft.com/pt-br/windows/win32/gdi/bitmap-header-types)
+
+## Related codebases
+1. [CBFG - Github Repo](https://github.com/CodeheadUK/CBFG/tree/master)
