@@ -2,10 +2,10 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <vector>
+#include <algorithm>
 
 unsigned int FONTATLAS_DEFAULT_COLORDEPTH = 8;  //8 bits per pixel
-unsigned int FONTATLAS_DEFAULT_WIDTH = 10;      //Horizontal cell count
-unsigned int FONTATLAS_DEFAULT_HEIGHT = 10;     //Vertical call count
 
 unsigned int FONTATLAS_DEFAULT_STARTING_ASCII_CHAR = 32;
 unsigned int FONTATLAS_DEFAULT_ENDING_ASCII_CHAR = 127;
@@ -17,59 +17,52 @@ FontAtlas::FontAtlas(const unsigned char* atlasPath){
 */
 
 FontAtlas::FontAtlas(Font& sourceFont):
-    m_cellColorDepth(FONTATLAS_DEFAULT_COLORDEPTH),
-    m_atlasWidth(FONTATLAS_DEFAULT_WIDTH),
-    m_atlasHeight(FONTATLAS_DEFAULT_HEIGHT)
+    m_cellColorDepth(FONTATLAS_DEFAULT_COLORDEPTH)
 {
-    m_cellHeight = sourceFont.GetPixelSizeHeight();
-    if (sourceFont.GetPixelSizeWidth() == 0) m_cellWidth = m_cellHeight;
-    else m_cellWidth = sourceFont.GetPixelSizeWidth();
+    // Initialization of FontAtlas using ShelfPacking algorithm
+    std::vector<Glyph> fontCharacters;
+    m_atlasHeight = 0;
+    m_atlasWidth = 0;
 
-    m_cellDataSize = m_cellHeight * m_cellWidth * m_cellColorDepth;
-    unsigned int atlasDataSize = m_cellDataSize * m_atlasHeight * m_atlasWidth; 
-    std::vector<unsigned char> atlasData(atlasDataSize, 0);
-
-    m_atlas = std::make_unique<Bitmap>(
-        m_atlasWidth * m_cellWidth,
-        m_atlasHeight * m_cellHeight,
-        m_cellColorDepth,
-        atlasData);
-
-    unsigned int xAtlasPos = 0;
-    unsigned int yAtlasPos = 0;
-    unsigned int totalSlotCnt = m_atlasHeight * m_atlasWidth;
-    unsigned int characterCode = FONTATLAS_DEFAULT_STARTING_ASCII_CHAR;
-
-    while (
-        characterCode < FONTATLAS_DEFAULT_ENDING_ASCII_CHAR &&
-        (yAtlasPos * xAtlasPos + xAtlasPos) < totalSlotCnt)
+    for (int characterCode = FONTATLAS_DEFAULT_STARTING_ASCII_CHAR;
+            characterCode < FONTATLAS_DEFAULT_ENDING_ASCII_CHAR;
+            characterCode++)
     {
-        if (xAtlasPos == m_atlasWidth){
-            yAtlasPos += 1;
-            xAtlasPos = 0;
-        } 
+        fontCharacters.push_back(sourceFont.GetGlyphBitmapData(characterCode));
+        m_atlasWidth += fontCharacters.back().metrics.width;
+    }
 
-        Glyph character = sourceFont.GetGlyphBitmapData(characterCode);
-        for (int i = 0; i < character.metrics.rows; i++){
-            unsigned int glyphRowStart = i * character.metrics.width;
-            std::vector<unsigned char> glyphRow(
-                character.imgData.data() + glyphRowStart, 
-                character.imgData.data() + glyphRowStart + character.metrics.width);
+    std::sort(fontCharacters.begin(), fontCharacters.end(),
+    [](Glyph& i, Glyph& j) -> bool { return i.metrics.rows > j.metrics.rows;});
+    m_atlasHeight = fontCharacters.front().metrics.rows;
     
-            m_atlas->ModifyPixel(glyphRow,
-                xAtlasPos * m_cellWidth,
-                i + (yAtlasPos * m_cellHeight));
+    m_atlas = std::make_unique<Bitmap>(
+        m_atlasWidth,
+        m_atlasHeight,
+        FONTATLAS_DEFAULT_COLORDEPTH);
+    
+    unsigned int xCursor = 0;
+    for (size_t i = 0; i < fontCharacters.size(); i++){
+
+        for (int j = 0; j < fontCharacters[i].metrics.rows; j++){
+            unsigned int glyphRowStart = j * fontCharacters[i].metrics.width;
+            std::vector<unsigned char> glyphRow(
+                fontCharacters[i].imgData.data() + glyphRowStart, 
+                fontCharacters[i].imgData.data() + glyphRowStart + fontCharacters[i].metrics.width);
+    
+            m_atlas->ModifyPixel(
+                glyphRow, 
+                xCursor,
+                j);
         }
 
         CellData cellData;
-        cellData.glyphMetrics = character.metrics;
-        cellData.xAtlasOffset = xAtlasPos * m_cellWidth;
-        cellData.yAtlasOffset = yAtlasPos * m_cellHeight;
-        m_cellDataMap.emplace(characterCode, cellData);
+        cellData.glyphMetrics = fontCharacters[i].metrics;
+        cellData.yAtlasOffset = 0;
+        cellData.xAtlasOffset = xCursor;
+        m_cellDataMap.emplace(fontCharacters[i].glyph, cellData);
 
-        xAtlasPos += 1;
-        characterCode += 1;
-
+        xCursor += fontCharacters[i].metrics.width;
     }
 }
 

@@ -1,4 +1,19 @@
-[2025-09-26 12:58:20] v0_04_03_53: .
+[2025-10-09 00:28:50] v0_04_04_17: .
+[2025-10-09 00:28:15] v0_04_04_16: .
+[2025-10-09 00:27:34] v0_04_04_15: .
+[2025-10-09 00:26:48] v0_04_04_14: Added text blending control via keyboard
+[2025-10-09 00:21:51] v0_04_04_13: No blending testing
+[2025-10-09 00:16:18] v0_04_04_12: .
+[2025-10-09 00:14:56] v0_04_04_11: .
+[2025-10-09 00:14:06] v0_04_04_10: Removed CLI messages from the new algorithm
+[2025-10-09 00:12:13] v0_04_04_09: New go at updating FontAtlas Packing algorithm
+[2025-10-09 00:01:59] v0_04_04_08: RollBack due to white screen while rendering
+[2025-10-08 23:59:29] v0_04_04_06: Changed packing algorithm in FontAtlas constructor
+[2025-10-02 16:11:43] v0_04_04_05: Pitch show build
+[2025-09-30 11:58:30] v0_04_04_03: Fixing error with changelog comments
+[2025-09-30 11:52:22] v0_04_04_02: Disabled mesh related code for resource management testing
+[2025-09-30 11:05:10] v0_04_04_01: First launch of v0.04.04 - Resource manager Revamp
+
 [2025-09-26 12:49:47] v0_04_03_52: Updated Bitmap.cpp Export function for 8-bit images
 [2025-09-11 00:02:23] v0_04_03_51: Fixed atlas glyph rendering using proper texture alignment
 [2025-09-10 23:26:21] v0_04_03_34: Testing atlas repositioning on quads

@@ -35,6 +35,8 @@ std::unique_ptr<VertexBuffer> fontVBO;
 std::unique_ptr<IndexBuffer> fontIBO;
 std::unique_ptr<FontAtlas> fontAtlas;
 
+bool textBlending = true;
+
 int main() {
 	// glfw: initialize and configure --------------------------------------------
 	glfwInit();
@@ -98,7 +100,7 @@ int main() {
 		0, 2, 3
 	};
 	fontIBO = std::make_unique<IndexBuffer>(fontIndices, 6);
-
+///*
 	// vertices definition -------------------------------------------------------
 	std::vector<float> cube_vData = {
 		//vertex			  //Vertex Normal		//texture	r	
@@ -187,7 +189,8 @@ int main() {
 	Mesh cubeMesh(cube_vData, std::vector<unsigned int>{3,3,2});
 	containerCube.PushMesh(cubeMesh.GetVertexData(), cubeMesh.GetVertexLayout());
 	containerCube.SetIndexBuffer(vertexIndices);
-	//*/
+	//
+//*/
 
 	// texture handling ----------------------------------------------------------
 	const Bitmap& atlasBMP = fontAtlas->GetBitmap();
@@ -202,11 +205,13 @@ int main() {
 	atlasTexture.SetPar(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	atlasTexture.Load(atlasBMP.GetRawData(), atlasBMP.GetWidth(), atlasBMP.GetRows());
 	
+///*
 	Texture& container = Things::LoadTexture("container", "res\\textures\\container.jpg", true);
 	container.SetPar(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	container.SetPar(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	container.SetPar(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	container.SetPar(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+//*/
 
 	// initialization before rendering -------------------------------------------
 	Shader& fontShader = Things::LoadShader(
@@ -216,7 +221,7 @@ int main() {
 	
 	fontShader.SetUniform("projection", fontProjection);
 	fontShader.SetUniform("model", fontModel);
-
+///*
 	Shader& light_shader = Things::LoadShader(
 		"light_shader", 
 		"res\\shaders\\lightSource.vert", 
@@ -238,7 +243,7 @@ int main() {
 	test_shader.SetUniform("light.ambient", glm::vec3(0.1f, 0.1f, 0.1f));
 	test_shader.SetUniform("light.diffuse", glm::vec3(0.5f, 0.5f, 0.5f));
 	test_shader.SetUniform("light.specular", glm::vec3(1.0f, 1.0f, 1.0f));
-
+//*/
 	// render loop (happens every frame) -----------------------------------------
 	while (!glfwWindowShouldClose(window)) {
 		// -> frame time tracker
@@ -246,12 +251,11 @@ int main() {
 		
 		// -> input handling
 		processInput(window);
-
 		// --> space configurations and rendering
 		Renderer::SetRender3D(true);
 		Renderer::RenderConfig(0.4f, 0.4f, 0.4f);
 		glEnable(GL_DEPTH_TEST);
-		
+///*
 		// ---> world config
 		glm::mat4 projection3D = glm::perspective
 		(glm::radians(camera.Zoom), (float)screenWidth / (float)screenHeight, 0.1f, 100.0f);
@@ -276,21 +280,22 @@ int main() {
 		model3D = glm::scale(model3D, glm::vec3(0.2f));
 		Renderer::SetModel(model3D);
 		Renderer::Render(lightCube.GetVertexArray(), lightCube.GetIBO(), light_shader);
+//*/
 		glDisable(GL_DEPTH_TEST);
-		
+
 		// ---> font rendering
 		Renderer::SetRender3D(false);
-		glEnable(GL_BLEND);
+		bool shouldBlend = textBlending;
+		if (shouldBlend) glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glActiveTexture(GL_TEXTURE0);
 		atlasTexture.Bind();
-		RenderText(fontShader, "darthMaul@DeathStar", 10.0f, 20.0f, 1.0f, glm::vec3(1.0f, 1.0f, 0.0f));
-		glDisable(GL_BLEND);
+		RenderText(fontShader, "lord.sidious@deathstar", 10.0f, 20.0f, 1.0f, glm::vec3(1.0f, 1.0f, 0.0f));
+		if (shouldBlend) glDisable(GL_BLEND);
 
 		// -> check and call events and swap the buffers
 		glfwSwapBuffers(window);
 		glfwPollEvents();
-
 	}
 
 	glfwTerminate();
@@ -300,6 +305,9 @@ int main() {
 void processInput(GLFWwindow* window) {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
+
+	if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS) textBlending = false;
+	else textBlending = true;
 
 	const float cameraSpeed = 2.5f * Renderer::GetDeltaTime();
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
