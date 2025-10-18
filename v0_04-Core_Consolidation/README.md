@@ -30,20 +30,21 @@ In this version, there are a few objectives for the project:
 This README by itself will be used as such sketch in order to facilitate future understanding of the inner workings of the engine. Thus:
 
 # Development Plan Notes
-	- v0.04: Core engine consolidation and README refactoring
-		- Core modules and concern separation
-		- [x] v0.04.00: Sketch a working example of usage of the current features 
-		- [x] v0.04.01: Consolidate Vertex data with Entity, Model and Mesh classes 
-		- [x] v0.04.02: Rebuild Texture Class and finish core modules documentation
-		- Third-Party modules and software
-		- [x] v0.04.03: Implement Text loading and handling
-		- [ ] v0.04.04: Better resource manager (Things class family)
-		- [ ] v0.04.05: Add OpenAL sound API 
-		- [ ] v0.04.06: Implement sound class
-		- User Interface
-		- [ ] v0.04.07: Improve UI modules (World - modules)
-		- Ship: Sound + Text Demo
-		- Ship v0.04 Demo
+
+- v0.04: Core engine consolidation and README refactoring
+	- Core modules and concern separation
+	- [x] v0.04.00: Sketch a working example of usage of the current features 
+	- [x] v0.04.01: Consolidate Vertex data with Entity, Model and Mesh classes 
+	- [x] v0.04.02: Rebuild Texture Class and finish core modules documentation
+	- Third-Party modules and software
+	- [x] v0.04.03: Implement Text loading and handling
+	- [ ] v0.04.04: Better resource manager (Things class family)
+	- [ ] v0.04.05: Add OpenAL sound API 
+	- [ ] v0.04.06: Implement sound class
+	- User Interface
+	- [ ] v0.04.07: Improve UI modules (World - modules)
+	- Ship: Sound + Text Demo
+	- Ship v0.04 Demo
 
 # Core engine Documentation
 The engine is structured mainly with an DOP desing in mind.
