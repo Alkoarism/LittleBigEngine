@@ -1,5 +1,7 @@
 #include "World/entity.h"
 
+#include <glm/gtc/matrix_transform.hpp>
+
 Entity::Entity()
     :   position(glm::vec3(0.0f)), size(glm::vec3(1.0f)), color(glm::vec3(0.0f)),
         rotation(0.0f), active(true){ }

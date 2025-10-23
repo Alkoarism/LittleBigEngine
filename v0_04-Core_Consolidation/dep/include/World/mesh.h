@@ -1,7 +1,11 @@
 #ifndef MESH_H
 #define MESH_H
 
-#include "OpenGL/renderer.h"
+#include <vector>
+#include <memory>
+
+#include "OpenGL/vertex_buffer.h"
+#include "OpenGL/vertex_buffer_layout.h"
 
 //STORES THE DATA managed by a single mesh on a currently running program
 class Mesh{

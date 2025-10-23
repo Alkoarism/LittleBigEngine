@@ -1,12 +1,24 @@
+[2025-10-22 21:52:45] v0_04_04_36: .
+[2025-10-22 21:51:35] v0_04_04_35: Completely removed generic headers.h
+[2025-10-22 21:43:08] v0_04_04_34: .
+[2025-10-22 21:40:47] v0_04_04_33: .
+[2025-10-22 21:39:02] v0_04_04_32: .
+[2025-10-22 21:36:15] v0_04_04_31: Removed headers.h from a buch of classes
+[2025-10-22 21:25:05] v0_04_04_30: .
+[2025-10-22 21:24:25] v0_04_04_29: Removed generic headers.h from vertex buffer and vertex buffer layout headers
+[2025-10-22 21:19:52] v0_04_04_28: Removed generic headers.h from texture.h
+[2025-10-22 21:17:06] v0_04_04_27: Removed generic headers.h from shader.h
+[2025-10-22 21:11:34] v0_04_04_26: .
+[2025-10-22 21:08:48] v0_04_04_25: Removed generic headers.h from index_buffer.h
+[2025-10-22 21:07:46] v0_04_04_24: Removed generic headers.h from camera.h
+[2025-10-22 21:05:59] v0_04_04_23: .
+[2025-10-22 21:04:29] v0_04_04_22: .
+[2025-10-22 21:03:02] v0_04_04_21: .
+[2025-10-22 20:48:57] v0_04_04_20: .
 [2025-10-18 16:27:39] v0_04_04_19: Removed mouse callbacks for leaner test environment
 [2025-10-18 16:24:58] v0_04_04_18: Removed 3D models for resource management testing and development
-[2025-10-09 00:28:50] v0_04_04_17: .
-[2025-10-09 00:28:15] v0_04_04_16: .
-[2025-10-09 00:27:34] v0_04_04_15: .
 [2025-10-09 00:26:48] v0_04_04_14: Added text blending control via keyboard
 [2025-10-09 00:21:51] v0_04_04_13: No blending testing
-[2025-10-09 00:16:18] v0_04_04_12: .
-[2025-10-09 00:14:56] v0_04_04_11: .
 [2025-10-09 00:14:06] v0_04_04_10: Removed CLI messages from the new algorithm
 [2025-10-09 00:12:13] v0_04_04_09: New go at updating FontAtlas Packing algorithm
 [2025-10-09 00:01:59] v0_04_04_08: RollBack due to white screen while rendering

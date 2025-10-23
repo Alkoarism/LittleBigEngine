@@ -1,7 +1,9 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#include "headers.h"
+#include <glad/glad.h>
+
+#include <map>
 
 class Texture {
 public:

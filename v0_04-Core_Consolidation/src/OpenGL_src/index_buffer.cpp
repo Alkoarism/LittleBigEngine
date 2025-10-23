@@ -1,5 +1,7 @@
 #include "OpenGL/index_buffer.h"
 
+#include <utility>
+
 IndexBuffer::IndexBuffer(const GLuint* data,const GLuint count) : m_indexCount(count) {
 	glGenBuffers(1, &m_indexBufferID);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_indexBufferID);

@@ -1,7 +1,10 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "headers.h"
+#include <glad/glad.h>
+#include <glm/glm.hpp>
+
+#include <vector>
 
 enum Camera_Movement {
 	FORWARD,

@@ -1,5 +1,8 @@
 #include "World/things.h"
 
+#include <fstream>
+#include <sstream>
+
 Shader& Things::LoadShader
 	(const std::string& name, const char* vertPath, const char* fragPath) {
 	

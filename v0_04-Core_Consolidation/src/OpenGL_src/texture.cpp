@@ -1,5 +1,8 @@
 #include "OpenGL/texture.h"
 
+#include <utility>
+#include <iostream>
+
 Texture::Texture(const GLenum& target, const GLenum& format) : m_target(target), m_format(format) {
 	glGenTextures(1, &m_textureID);
 	m_instanceBitUnpackingSize = 4;

@@ -1,7 +1,7 @@
 #ifndef VERTEX_BUFFER_H
 #define VERTEX_BUFFER_H
 
-#include "headers.h"
+#include <glad/glad.h>
 
 class VertexBuffer {
 public:

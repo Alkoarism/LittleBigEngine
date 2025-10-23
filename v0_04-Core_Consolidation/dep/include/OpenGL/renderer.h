@@ -1,7 +1,6 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include "headers.h"
 #include "OpenGL/vertex_array.h"
 #include "OpenGL/index_buffer.h"
 #include "OpenGL/shader.h"

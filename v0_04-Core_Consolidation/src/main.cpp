@@ -1,3 +1,8 @@
+#include <glad/glad.h>	//Never remove, responsible for OpenGL´s loading
+#include <GLFW/glfw3.h>	//Never remove, responsible for window management
+
+#include <glm/gtc/matrix_transform.hpp>
+
 #include "OpenGL/renderer.h"
 #include "OpenGL/camera.h"
 
@@ -97,8 +102,6 @@ int main() {
 	};
 	fontIBO = std::make_unique<IndexBuffer>(fontIndices, 6);
 
-	// Model (vertex and buffers) configurations ---------------------------------
-
 	// texture handling ----------------------------------------------------------
 	const Bitmap& atlasBMP = fontAtlas->GetBitmap();
 	fontAtlas->ExportBitmapAtlas("res/bitmap/starjoutAtlas.bmp");
@@ -128,18 +131,10 @@ int main() {
 		
 		// -> input handling
 		processInput(window);
+
 		// --> space configurations and rendering
-		Renderer::SetRender3D(true);
 		Renderer::RenderConfig(0.4f, 0.4f, 0.4f);
-		glEnable(GL_DEPTH_TEST);
-
-		// ---> world config
-
-		// ---> camera config
-
-		// ---> model positioning
-		glDisable(GL_DEPTH_TEST);
-
+		
 		// ---> font rendering
 		Renderer::SetRender3D(false);			
 		bool shouldBlend = textBlending;		

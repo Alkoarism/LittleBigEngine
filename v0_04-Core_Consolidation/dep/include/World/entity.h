@@ -1,7 +1,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "OpenGL/renderer.h"
+#include <glm/glm.hpp>
 
 //STORES THE DATA managed by a single entity on a currently running program
 class Entity{

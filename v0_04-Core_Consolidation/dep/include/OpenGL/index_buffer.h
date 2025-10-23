@@ -1,7 +1,7 @@
 #ifndef INDEX_BUFFER_H
 #define INDEX_BUFFER_H
 
-#include "headers.h"
+#include <glad/glad.h>
 
 class IndexBuffer {
 public:

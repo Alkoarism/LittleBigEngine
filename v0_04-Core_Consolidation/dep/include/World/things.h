@@ -1,7 +1,6 @@
 #ifndef THINGS_H
 #define THINGS_H
 
-#include "headers.h"
 #include "engine_config.h"
 
 #include "OpenGL/vertex_array.h"

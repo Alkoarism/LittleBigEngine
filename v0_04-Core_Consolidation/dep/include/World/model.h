@@ -1,7 +1,10 @@
 #ifndef MODEL_H
 #define MODEL
 
-#include "OpenGL/renderer.h"
+#include <memory>
+
+#include "OpenGL/vertex_array.h"
+#include "OpenGL/index_buffer.h"
 
 class Model{
 public:

@@ -1,5 +1,7 @@
 #include "OpenGL/shader.h"
 
+#include <glm/gtc/type_ptr.hpp>
+
 Shader::~Shader() {
     Release();
 }

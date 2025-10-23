@@ -1,5 +1,7 @@
 #include "OpenGL/renderer.h"
 
+#include <GLFW/glfw3.h>
+
 void Renderer::Render
 	(const VertexArray& va, const IndexBuffer& ib, const Shader& s) {
 		va.Bind();

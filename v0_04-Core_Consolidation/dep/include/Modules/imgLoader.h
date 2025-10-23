@@ -1,8 +1,6 @@
 #ifndef IMGLOADER_H
 #define IMGLOADER_H
 
-#include "headers.h"
-
 class ImgLoader{
 public:
     ImgLoader(const char* location, bool flipImage = true);
