@@ -3,6 +3,7 @@
 #include <fstream>
 #include <memory>
 #include <iostream>
+#include <cstring> // Needed for using memcpy
 
 
 bool    BITMAP_TOP_TO_BOTTOM = true;

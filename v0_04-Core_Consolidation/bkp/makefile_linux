@@ -1,0 +1,55 @@
+.PHONY = all clean
+
+# Includes path
+INCLUDES := -Idep/include
+
+# Compilers, linker and flags
+CC := gcc
+CCFLAGS := -O2 $(INCLUDES)
+
+CXX := g++
+CXXFLAGS := -O2 $(INCLUDES)
+
+GLFWFLAGS := -lglfw -lGL -lX11 -lpthread -lXrandr -lXi -ldl
+#CXXFLAGS := -Wall -Wextra -Werror -g -O2
+
+# Directory structure
+SRCDIR := src
+OBJDIR := obj
+BINDIR := bin
+
+# Executable name
+TARGET := gettingStarted
+EXEC := $(BINDIR)/$(TARGET)
+
+# Source and object files
+CPP_SRCS := $(wildcard $(SRCDIR)/*.cpp)
+CPP_OBJS := $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(CPP_SRCS))
+
+C_SRCS := $(wildcard $(SRCDIR)/*.c)
+C_OBJS := $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(C_SRCS))
+
+OBJS := $(CPP_OBJS) $(C_OBJS)
+
+# Default target
+all: $(EXEC)
+
+# Link objects into the final binary
+$(EXEC): $(OBJS) | $(BINDIR)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@ $(GLFWFLAGS)
+
+# Compile .c to .o
+$(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
+	$(CC) $(CCFLAGS) -c $< -o $@
+
+# Compile .cpp to .o
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ $(GLFWFLAGS)
+
+# Ensure bin/ and obj/ exist
+$(OBJDIR) $(BINDIR):
+	mkdir -p $@
+
+clean:
+	@echo "Cleaning up..."
+	rm -rvf ${OBJDIR}/*.o

@@ -80,7 +80,7 @@ int main() {
 	_error_texture.SetPar(GL_TEXTURE_MAG_FILTER, LBE_DEFAULT_TEXTURE_MAG_FILTER);
 
 	// -> font loading
-	Font timesNewRoman("res\\fonts\\Starjout.ttf", 0, 32);
+	Font timesNewRoman("res/fonts/Starjout.ttf", 0, 32);
 	fontAtlas = std::make_unique<FontAtlas>(timesNewRoman);
 
 	glm::mat4 fontModel = glm::mat4(1.0f);
@@ -206,7 +206,7 @@ int main() {
 	atlasTexture.Load(atlasBMP.GetRawData(), atlasBMP.GetWidth(), atlasBMP.GetRows());
 	
 ///*
-	Texture& container = Things::LoadTexture("container", "res\\textures\\container.jpg", true);
+	Texture& container = Things::LoadTexture("container", "res/textures/container.jpg", true);
 	container.SetPar(GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	container.SetPar(GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	container.SetPar(GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -216,21 +216,21 @@ int main() {
 	// initialization before rendering -------------------------------------------
 	Shader& fontShader = Things::LoadShader(
 		"font2D",
-		"res\\shaders\\main2D.vert",
-		"res\\shaders\\font2D.frag");
+		"res/shaders/main2D.vert",
+		"res/shaders/font2D.frag");
 	
 	fontShader.SetUniform("projection", fontProjection);
 	fontShader.SetUniform("model", fontModel);
 ///*
 	Shader& light_shader = Things::LoadShader(
 		"light_shader", 
-		"res\\shaders\\lightSource.vert", 
-		"res\\shaders\\lightSource.frag");
+		"res/shaders/lightSource.vert", 
+		"res/shaders/lightSource.frag");
 	
 	Shader& test_shader = Things::LoadShader(
 		"test_shader", 
-		"res\\shaders\\test.vert", 
-		"res\\shaders\\test.frag");
+		"res/shaders/test.vert", 
+		"res/shaders/test.frag");
 
 	test_shader.SetUniform("objectColor", glm::vec3(1.0f, 0.5f, 0.31f));
 	test_shader.SetUniform("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <cstdint> // Needed for using uint8_t
 
 class Bitmap{
 public:
