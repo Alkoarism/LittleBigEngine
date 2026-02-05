@@ -81,7 +81,7 @@ int main() {
 	_error_texture.SetPar(GL_TEXTURE_MAG_FILTER, LBE_DEFAULT_TEXTURE_MAG_FILTER);
 
 	// -> font loading
-	Font timesNewRoman("res\\fonts\\Starjout.ttf", 0, 32);
+	Font timesNewRoman("res/fonts/Times-New-Roman.ttf", 0, 64);
 	fontAtlas = std::make_unique<FontAtlas>(timesNewRoman);
 
 	glm::mat4 fontModel = glm::mat4(1.0f);
@@ -104,7 +104,8 @@ int main() {
 
 	// texture handling ----------------------------------------------------------
 	const Bitmap& atlasBMP = fontAtlas->GetBitmap();
-	fontAtlas->ExportBitmapAtlas("res/bitmap/starjoutAtlas.bmp");
+	// The .bmp is generated internally, but can be exported and loaded separatelly.
+	fontAtlas->ExportBitmapAtlas("res/bitmap/timesNewRomanAtlas.bmp");
 	
 	Texture atlasTexture(GL_TEXTURE_2D, GL_RED);
 	atlasTexture.Bind();
@@ -118,8 +119,8 @@ int main() {
 	// initialization before rendering -------------------------------------------
 	Shader& fontShader = Things::LoadShader(
 		"font2D",
-		"res\\shaders\\main2D.vert",
-		"res\\shaders\\font2D.frag");
+		"res/shaders/main2D.vert",
+		"res/shaders/font2D.frag");
 	
 	fontShader.SetUniform("projection", fontProjection);
 	fontShader.SetUniform("model", fontModel);
@@ -142,7 +143,8 @@ int main() {
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glActiveTexture(GL_TEXTURE0);
 		atlasTexture.Bind();
-		RenderText(fontShader, "lord.sidious@deathstar", 10.0f, 20.0f, 1.0f, glm::vec3(1.0f, 1.0f, 0.0f));
+		RenderText(fontShader, "abcedfghijklmnopqrstuvwxyz1234567890", 10.0f, 20.0f, 0.5f, glm::vec3(1.0f, 1.0f, 0.0f));
+		RenderText(fontShader, "-_=+[{(,<>.;:/?!@#$%\"&*)}]", 10.0f, 60.0f, 0.5f, glm::vec3(1.0f, 1.0f, 0.0f));
 		if (shouldBlend) glDisable(GL_BLEND);	//Blending control
 
 		// -> check and call events and swap the buffers

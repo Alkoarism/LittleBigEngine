@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <string>
+#include <cstdint>
+#include <memory>
 
 class Bitmap{
 public:

@@ -1,20 +1,21 @@
 .PHONY = all clean
 
 # Includes path
+FREETYPE_INCLUDE := -I/usr/include/freetype2
 THIRDPARTY_INCLUDES := -Idep/include/ThirdParty
 INCLUDES := $(THIRDPARTY_INCLUDES) -Idep/include
-WIN_INCLUDES := -Ldep/lib
+#WIN_INCLUDES := -Ldep/lib
 
 # Compilers and linker
-CC := x86_64-w64-mingw32-gcc
+CC := gcc
 CCFLAGS := -O2 $(INCLUDES)
 
-CXX := x86_64-w64-mingw32-g++
-CXXFLAGS := -O2 -static-libstdc++ $(INCLUDES) $(WIN_INCLUDES)
+CXX := g++
+CXXFLAGS := -O2 $(INCLUDES)
 
 # Flags
-FREETYPE_LIB := -lfreetype
-OPENGLFLAGS := $(FREETYPE_LIB) -lglfw3 -lopengl32 -lgdi32 -luser32 -lkernel32
+FREETYPE_LIB := -L/usr/include/libpng16 -lfreetype
+OPENGLFLAGS := $(FREETYPE_LIB) -lglfw -lX11 -lpthread -lXrandr -lXi -ldl
 #CXXFLAGS := -Wall -Wextra -Werror -g -O2
 
 # Directory structure
@@ -23,7 +24,7 @@ OBJDIR := obj
 BINDIR := bin
 
 # Executable name
-TARGET := core_consolidation
+TARGET := core_consolidation_linux_build
 EXEC := $(BINDIR)/$(TARGET)
 
 # Source and object files

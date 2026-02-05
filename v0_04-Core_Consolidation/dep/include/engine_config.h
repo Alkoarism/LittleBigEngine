@@ -5,7 +5,7 @@
 
 //===================== Core engine Defaults ==================================
 constexpr char* LBE_ERROR_TEXTURE_NAME = "errorTexture";
-constexpr char* LBE_ERROR_TEXTURE_PATH = "res\\textures\\error.jpg";
+constexpr char* LBE_ERROR_TEXTURE_PATH = "res/textures/error.jpg";
 
 //===================== OpenGL Defaults =======================================
 constexpr GLenum LBE_DEFAULT_TEXTURE_WRAP_S = GL_REPEAT;
