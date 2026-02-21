@@ -7,3 +7,4 @@
 [2026-02-21 14:23:20]: Scripted new proprietary launch.sh file
 [2026-02-21 14:23:42]: compilation message 2
 [2026-02-21 14:55:32] v0_04_04 :Included changes from graphing_calculator project
+[2026-02-21 16:59:46] v0_04_04: Fixed font rendering fail for characters with yBearing > rows

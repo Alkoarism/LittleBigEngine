@@ -3,6 +3,8 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 
+#include <iostream>
+
 #include "OpenGL/renderer.h"
 #include "OpenGL/camera.h"
 
@@ -30,11 +32,6 @@ float lastX = screenWidth / 2, lastY = screenHeight / 2;
 float fov = 45.0;
 bool firstMouse = true;
 
-struct Character{
-	Glyph ftGlyph;
-};
-
-std::map<char, Character> characters;
 std::unique_ptr<VertexArray> fontVAO;
 std::unique_ptr<VertexBuffer> fontVBO;
 std::unique_ptr<IndexBuffer> fontIBO;
@@ -105,7 +102,7 @@ int main() {
 	// texture handling ----------------------------------------------------------
 	const Bitmap& atlasBMP = fontAtlas->GetBitmap();
 	// The .bmp is generated internally, but can be exported and loaded separatelly.
-	fontAtlas->ExportBitmapAtlas("res/bitmap/timesNewRomanAtlas.bmp");
+	fontAtlas->ExportBitmapAtlas("res/bitmap/timesNewRoman.bmp");
 	
 	Texture atlasTexture(GL_TEXTURE_2D, GL_RED);
 	atlasTexture.Bind();
@@ -144,7 +141,7 @@ int main() {
 		glActiveTexture(GL_TEXTURE0);
 		atlasTexture.Bind();
 		RenderText(fontShader, "abcedfghijklmnopqrstuvwxyz1234567890", 10.0f, 20.0f, 0.5f, glm::vec3(1.0f, 1.0f, 0.0f));
-		RenderText(fontShader, "-_=+[{(,<>.;:/?!@#$%\"&*)}]", 10.0f, 60.0f, 0.5f, glm::vec3(1.0f, 1.0f, 0.0f));
+		RenderText(fontShader, "-_=+[{(,<>.;:/?!@#$%\\\"&*)}]", 10.0f, 60.0f, 0.5f, glm::vec3(1.0f, 1.0f, 0.0f));
 		if (shouldBlend) glDisable(GL_BLEND);	//Blending control
 
 		// -> check and call events and swap the buffers
@@ -178,15 +175,17 @@ void RenderText(Shader& fs, std::string text, float x, float y, float scale, glm
 		const GlyphMetrics& characterData = charCellData.glyphMetrics;
 
 		float posX = x + (characterData.xBearing * scale);
-		float posY = y - ((characterData.rows - characterData.yBearing) * scale);
-
+		float pixelHeight = static_cast<float>(characterData.rows) - static_cast<float>(characterData.yBearing);
+		float posY = y - (pixelHeight * scale);
+		
 		float w = characterData.width * scale;
 		float z = characterData.rows * scale;
-
-		float u = static_cast<float>(charCellData.xAtlasOffset) / fontAtlas->GetBitmap().GetWidth();
+		
+		// The 1 and 2 magic numbers trim the edges of the letters and correct bleeding
+		float u = static_cast<float>(charCellData.xAtlasOffset + 1) / fontAtlas->GetBitmap().GetWidth();
 		float v = static_cast<float>(charCellData.yAtlasOffset) / fontAtlas->GetBitmap().GetRows();
 
-		float u1 = static_cast<float>(characterData.width) / fontAtlas->GetBitmap().GetWidth();
+		float u1 = static_cast<float>(characterData.width - 2) / fontAtlas->GetBitmap().GetWidth();
 		float v1 = static_cast<float>(characterData.rows) / fontAtlas->GetBitmap().GetRows();
 
 		//update VBO for each character
