@@ -3,7 +3,7 @@
 #include <fstream>
 #include <memory>
 #include <iostream>
-
+#include <cstring>
 
 bool    BITMAP_TOP_TO_BOTTOM = true;
 int     BITMAP_WINDOWS_STANDARD_DPI = 96;

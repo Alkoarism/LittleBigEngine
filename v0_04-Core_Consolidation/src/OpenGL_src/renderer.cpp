@@ -2,24 +2,35 @@
 
 #include <GLFW/glfw3.h>
 
-void Renderer::Render
-	(const VertexArray& va, const IndexBuffer& ib, const Shader& s) {
-		va.Bind();
-		ib.Bind();
-        s.Use();
+void Renderer::Render(
+	const VertexArray& va, const IndexBuffer& ib, const Shader& s, const GLenum& mode)
+{
+	va.Bind();
+	ib.Bind();
+	s.Use();
 
-        if (render3D){
-            s.SetUniform("projection", projection);
-		    s.SetUniform("view", view);
-		    s.SetUniform("model", model);
-        }
-
-		glDrawElements(GL_TRIANGLES, ib.GetCount(), GL_UNSIGNED_INT, 0);
+	if (render3D){
+		s.SetUniform("projection", projection);
+		s.SetUniform("view", view);
+		s.SetUniform("model", model);
 	}
 
-void Renderer::RenderConfig
-	(const float& r, const float& g,
-	 const float& b, const float& a) {
+	glDrawElements(mode, ib.GetCount(), GL_UNSIGNED_INT, 0);
+}
+
+void Renderer::Render(
+	const VertexArray& va, const Shader& s, const int& firstPoint, const int& pointCnt,const GLenum& mode)
+{
+	va.Bind();
+	s.Use();
+
+	glDrawArrays(mode, firstPoint, pointCnt);
+}
+
+void Renderer::RenderConfig(
+	const float& r, const float& g,
+	const float& b, const float& a)
+{
 
 	glClearColor(r, g, b, a);
     if (render3D)

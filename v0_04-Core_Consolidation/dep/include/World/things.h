@@ -16,10 +16,11 @@
 //Stores all the data directly managed by the Engine on a currently running program
 class Things{
 public:
-	static Shader& LoadShader
-	(const std::string& name, const char* vertPath, const char* fragPath);
-	static Texture& LoadTexture
-	(const std::string& name, const char* file, bool flipImage);
+	static Shader& LoadShader(
+		const std::string& name,
+		const char* vertPath, const char* fragPath, const char* geomPath = nullptr);
+	static Texture& LoadTexture(
+		const std::string& name, const char* file, bool flipImage);
 	static Model& LoadModel(const std::string& name);
 
     static Shader& GetShader(const std::string& name);

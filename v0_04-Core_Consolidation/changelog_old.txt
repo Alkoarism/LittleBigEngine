@@ -1,0 +1,104 @@
+[2025-10-22 21:51:35] v0_04_04_35: Completely removed generic headers.h
+[2025-10-22 21:36:15] v0_04_04_31: Removed headers.h from a buch of classes
+[2025-10-22 21:24:25] v0_04_04_29: Removed generic headers.h from vertex buffer and vertex buffer layout headers
+[2025-10-22 21:19:52] v0_04_04_28: Removed generic headers.h from texture.h
+[2025-10-22 21:17:06] v0_04_04_27: Removed generic headers.h from shader.h
+[2025-10-22 21:08:48] v0_04_04_25: Removed generic headers.h from index_buffer.h
+[2025-10-22 21:07:46] v0_04_04_24: Removed generic headers.h from camera.h
+[2025-10-18 16:27:39] v0_04_04_19: Removed mouse callbacks for leaner test environment
+[2025-10-18 16:24:58] v0_04_04_18: Removed 3D models for resource management testing and development
+[2025-10-09 00:26:48] v0_04_04_14: Added text blending control via keyboard
+[2025-10-09 00:21:51] v0_04_04_13: No blending testing
+[2025-10-09 00:14:06] v0_04_04_10: Removed CLI messages from the new algorithm
+[2025-10-09 00:12:13] v0_04_04_09: New go at updating FontAtlas Packing algorithm
+[2025-10-09 00:01:59] v0_04_04_08: RollBack due to white screen while rendering
+[2025-10-08 23:59:29] v0_04_04_06: Changed packing algorithm in FontAtlas constructor
+[2025-10-02 16:11:43] v0_04_04_05: Pitch show build
+[2025-09-30 11:58:30] v0_04_04_03: Fixing error with changelog comments
+[2025-09-30 11:52:22] v0_04_04_02: Disabled mesh related code for resource management testing
+[2025-09-30 11:05:10] v0_04_04_01: First launch of v0.04.04 - Resource manager Revamp
+
+[2025-09-26 12:49:47] v0_04_03_52: Updated Bitmap.cpp Export function for 8-bit images
+[2025-09-11 00:02:23] v0_04_03_51: Fixed atlas glyph rendering using proper texture alignment
+[2025-09-10 23:26:21] v0_04_03_34: Testing atlas repositioning on quads
+[2025-09-10 21:36:30] v0_04_03_33: Rollback of atlas positioning variables
+[2025-09-10 21:33:21] v0_04_03_32: Added atlas texture positioning to char quads
+[2025-09-10 20:44:55] v0_04_03_30: Added FontAtlas functinality to Glyph rendering pipeline
+[2025-09-10 20:34:20] v0_04_03_29: Insertion of FontAtlas into the main code
+[2025-09-10 20:30:54] v0_04_03_28: Changed resolution to 600x600
+[2025-09-10 20:28:32] v0_04_03_26: Testing usage of bimap arrays as textures
+[2025-09-10 16:14:34] v0_04_03_25: Working font rendering method
+[2025-09-10 16:06:00] v0_04_03_19: Changed RenderMode for font rendering
+[2025-09-10 15:43:40] v0_04_03_09: Looking for font NullPtr error while creating texture
+[2025-09-10 15:41:50] v0_04_03_08: Rolling back to mod of V3 for testing class by class from the Bitmap Generator project
+[2025-09-10 15:02:13] v0_04_03_07: Changed BitUnpacking Size for textureTNRA
+[2025-09-10 14:59:21] v0_04_03_06: Fixed character advance on x axi
+[2025-09-10 14:54:55] v0_04_03_05: Changed starting character in FontAtlas to 32
+[2025-09-10 14:53:51] v0_04_03_04: Added error catching to FontAtlas GetCharacterData() function
+[2025-09-10 14:38:41] v0_04_03_03: First iteration of RenderText(), same as in V3 with minor mods for new Font Handling classes
+[2025-09-10 13:04:59] v0_04_03_02: Added font related generation code and compiled
+[2025-09-10 11:28:43] v0_04_03_01: Compilation test after integration of Bitmap Generator subproject classes
+
+[2025-07-30 22:36:42] v0_04_02_55: Removed unnecessary headers from font.h and font.cpp
+[2025-07-30 10:16:43] v0_04_02_53: Added variable BitUnpacking Sizes handling to Texture class
+[2025-07-30 07:37:00] v0_04_02_50: testing font class
+[2025-07-30 07:27:29] v0_04_02_49: Finished first prototype of class Font´s behaviour
+[2025-07-28 12:29:18] v0_04_02_48: Changing Freetype headers to font.h
+[2025-07-28 10:23:41] v0_04_02_47: Added freetype libraries
+[2025-07-28 10:17:02] v0_04_02_46: Included Font class prototype/ Separated Third Party code from personal modules
+[2025-07-16 11:39:40] v0_04_02_45: Finished implementing first version of error handling for textures at World level
+[2025-07-16 11:26:40] v0_04_02_44: testing new texture error handling
+[2025-07-16 11:25:56] v0_04_02_43: Added initialization process for engine specific data
+[2025-07-16 11:09:41] v0_04_02_34: Changed error handling of textures to preload of standard checker error patern
+[2025-07-16 09:44:28] v0_04_02_33: Testing sequential imgloading with error on the first
+[2025-07-16 09:43:32] v0_04_02_32: Testing img loading without error handling
+[2025-07-16 09:41:06] v0_04_02_30: Testing error path passing using const char*
+[2025-07-16 09:38:54] v0_04_02_28: Testing destruction of ImgLoader object to get rid of errors stopping proper handling of sequent object creation
+[2025-07-16 09:25:42] v0_04_02_26: Changed Texture error handling on Things to non-recursive version
+[2025-07-16 09:12:32] v0_04_02_23: Another image type testing
+[2025-07-16 09:12:00] v0_04_02_22: Another renaming test
+[2025-07-16 09:11:29] v0_04_02_21: Testing image files renaming
+[2025-07-14 13:45:12] v0_04_02_20: Lots of testing with the error texture loading at Things.h
+[2025-07-14 13:11:51] v0_04_02_16: Fixed container img setting, via binding in Things::LoadTexture
+[2025-07-14 12:50:35] v0_04_02_10: Testing other images as standard error
+[2025-07-14 12:49:11] v0_04_02_09: RemoveSTBI_ONLY_JPEG config from ImgLoader.cpp
+[2025-07-14 12:41:27] v0_04_02_08: Testing things.cpp direct error texture passing
+[2025-07-14 12:37:16] v0_04_02_07: Changed constexpr variables on engine_config to simple const
+[2025-07-14 12:29:27] v0_04_02_06: Fixed non compliant variable declaration in engine_config (char* to std::string)
+[2025-07-14 12:27:13] v0_04_02_05: First successfull compilation after Texture class refactor
+[2025-07-12 13:32:10] v0_04_02_04: Changed textures type and format to private variables
+[2025-07-12 13:07:49] v0_04_02_03: Fixed texture "target" member variable misname (old: type)
+[2025-07-12 13:00:14] v0_04_02_02: Removed Text related code untill v0_05_00
+[2025-07-12 12:48:09] v0_04_02_01: First launch for v0_04_02 - Texture refactoring
+
+[2025-06-30 11:46:56] v0_04_01_31: Added example of usage of Models via Things container
+[2025-06-30 11:20:05] v0_04_01_30: Added GetModel function to Things
+[2025-06-30 11:19:10] v0_04_01_29: Added load and get functions for models in Thing
+[2025-06-30 10:55:27] v0_04_01_28: Changed initialization of m_VAO in Model class
+[2025-06-30 10:52:08] v0_04_01_27: Added m_model container to Things
+[2025-06-30 10:47:28] v0_04_01_26: Fixed upper case mistake on m_shaders and m_textures at Things
+[2025-06-30 10:46:36] v0_04_01_25: Added basic get and load functions for models on Things
+[2025-06-30 10:45:20] v0_04_01_24: Adding Models to Things class
+[2025-06-30 10:20:26] v0_04_01_23: Fixed changelog auto versioning
+[2025-06-30 09:24:39] v0_04_01_22: Changed project folder path
+[2025-06-28 10:38:31] v0_04_01_21: Given up on shader error handling
+[2025-06-28 10:37:49] v0_04_01_20: Another try at Shader compilation error handling
+[2025-06-28 10:33:41] v0_04_01_19: Testing Try Catch on shader class compilation process
+[2025-06-28 10:27:18] v0_04_01_18: Test: Setting Uniforms on a uncompiled shader program
+[2025-06-28 10:23:22] v0_04_01_17: Added Runtime Guard-rail for undefined shader compilation
+[2025-06-28 09:42:03] v0_04_01_16: Testing Shader Behaviour
+[2025-06-28 09:13:40] v0_04_01_15: Removed Freetype outdated DLL from root project
+[2025-06-26 13:52:39] v0_04_01_14: Finished skeleton of Model, Entity and Mesh classes (The renderer Draws)
+[2025-06-22 12:22:31] v0_04_01_13: Separation of concerns: Who draws? -> Entity; How to draw? -> Model;
+[2025-06-22 11:33:40] v0_04_01_12: Finished first version of Entity class
+[2025-06-22 10:19:14] v0_04_01_11: Moved VAOs to Entity class
+[2025-06-20 13:10:46] v0_04_01_10: First draft of simplified Mesh Class
+[2025-06-20 09:50:43] v0_04_01_09: Completely removed 3D classes (mesh / ObjLoader)
+[2025-06-20 08:28:17] v0_04_01_08: Converted Assimp loader to Obj loader
+[2025-06-18 13:45:52] v0_04_01_07: Proper set up of assimp´s library and includes
+[2025-06-18 13:44:34] v0_04_01_06: Properly sat up assimp´s librari
+[2025-06-16 11:56:55] v0_04_01_05: Added Assimp to include path
+[2025-06-16 11:29:57] v0_04_01_04: Added a sketch for the Entity Class
+[2025-06-14 11:45:17] v0_04_01_03: Removed resources from renderer and moved to "Things" generic global resource storage class
+[2025-06-14 10:49:17] v0_04_01_02: Created World folder to sort between Modules, OpenGL and Scene related classes
+[2025-06-12 11:57:23] v0_04_01_01: Final test for deployment of new changelog file

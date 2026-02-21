@@ -23,8 +23,8 @@ void Shader::Use() const{
     glUseProgram(m_shaderID);
 }
 
-void Shader::Compile(const char* vShaderCode, const char* fShaderCode) {
-    GLuint vertex, fragment;
+void Shader::Compile(const char* vShaderCode, const char* fShaderCode, const char* gShaderCode) {
+    GLuint vertex, fragment, geometry;
 
     vertex = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertex, 1, &vShaderCode, NULL);
@@ -36,17 +36,27 @@ void Shader::Compile(const char* vShaderCode, const char* fShaderCode) {
     glCompileShader(fragment);
     CheckCompileErrors(fragment, "FRAGMENT");
 
+    if (gShaderCode != nullptr){
+        geometry = glCreateShader(GL_GEOMETRY_SHADER);
+        glShaderSource(geometry, 1, &gShaderCode, NULL);
+        glCompileShader(geometry);
+        CheckCompileErrors(geometry, "GEOMETRY");
+    }
+
     if (m_shaderID != 0){
         Release();
     }
+    
     m_shaderID = glCreateProgram();
     glAttachShader(m_shaderID, vertex);
     glAttachShader(m_shaderID, fragment);
+    if (gShaderCode != nullptr) glAttachShader(m_shaderID, geometry);
     glLinkProgram(m_shaderID);
     CheckCompileErrors(m_shaderID, "PROGRAM");
 
     glDeleteShader(vertex);
     glDeleteShader(fragment);
+    if (gShaderCode != nullptr) glDeleteShader(geometry);
 }
 
 void Shader::SetGLUniform(const std::string& name, const bool& value) const {

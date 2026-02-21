@@ -4,20 +4,25 @@
 #include <sstream>
 
 Shader& Things::LoadShader
-	(const std::string& name, const char* vertPath, const char* fragPath) {
+	(const std::string& name, const char* vertPath, const char* fragPath, const char* geomPath) {
 	
     std::string vertexCode;
     std::string fragmentCode;
+    std::string geometryCode;
     std::ifstream vShaderFile;
     std::ifstream fShaderFile;
+    std::ifstream gShaderFile;
 
     vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
     fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+    gShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
     try
     {
         vShaderFile.open(vertPath);
         fShaderFile.open(fragPath);
-        std::stringstream vShaderStream, fShaderStream;
+        
+        std::stringstream vShaderStream, fShaderStream, gShaderStream;
 
         vShaderStream << vShaderFile.rdbuf();
         fShaderStream << fShaderFile.rdbuf();
@@ -27,6 +32,13 @@ Shader& Things::LoadShader
 
         vertexCode = vShaderStream.str();
         fragmentCode = fShaderStream.str();
+
+        if (geomPath != nullptr){
+            gShaderFile.open(geomPath);
+            gShaderStream << gShaderFile.rdbuf();
+            gShaderFile.close();
+            geometryCode = gShaderStream.str();
+        }
     }
     catch (std::ifstream::failure e)
     {
@@ -34,7 +46,9 @@ Shader& Things::LoadShader
     }
 
     m_shaders.emplace(name, Shader());
-    m_shaders[name].Compile(vertexCode.c_str(), fragmentCode.c_str());
+    if (geomPath == nullptr) m_shaders[name].Compile(vertexCode.c_str(), fragmentCode.c_str());
+    else m_shaders[name].Compile(vertexCode.c_str(), fragmentCode.c_str(), geometryCode.c_str());
+
     return m_shaders[name];
 }
 

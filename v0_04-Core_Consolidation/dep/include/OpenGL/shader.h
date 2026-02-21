@@ -18,7 +18,7 @@ public:
 	Shader& operator=(Shader&& other) noexcept;
 
 	void Use() const;
-	void Compile(const char*, const char*);
+	void Compile(const char*, const char*, const char* geometrySource = nullptr);
 
 	template <typename T>
 	bool SetUniform(const std::string&, const T&) const;
