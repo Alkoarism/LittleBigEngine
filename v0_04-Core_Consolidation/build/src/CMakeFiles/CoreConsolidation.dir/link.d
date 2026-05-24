@@ -20,9 +20,12 @@ CoreConsolidation: \
   CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.o \
   CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.o \
   ThirdParty/glfw-3.4/src/libglfw3.a \
+  ThirdParty/assimp/lib/libassimp.a \
   /usr/lib/x86_64-linux-gnu/libfreetype.so \
   /usr/lib/x86_64-linux-gnu/librt.a \
   /usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/../../../x86_64-linux-gnu/libdl.a \
+  /usr/lib/x86_64-linux-gnu/libz.so \
+  /usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/../../../x86_64-linux-gnu/librt.a \
   /usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/../../../x86_64-linux-gnu/libstdc++.so \
   /usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/../../../x86_64-linux-gnu/libm.so \
   /usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/../../../x86_64-linux-gnu/libm.so \
@@ -49,7 +52,6 @@ CoreConsolidation: \
   /usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/libgcc.a \
   /usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/crtendS.o \
   /usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/../../../x86_64-linux-gnu/crtn.o \
-  /usr/lib/x86_64-linux-gnu/libz.so.1 \
   /usr/lib/x86_64-linux-gnu/libbz2.so.1 \
   /usr/lib/x86_64-linux-gnu/libpng16.so.16 \
   /usr/lib/x86_64-linux-gnu/libharfbuzz.so.0 \
@@ -102,11 +104,17 @@ CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.o:
 
 ThirdParty/glfw-3.4/src/libglfw3.a:
 
+ThirdParty/assimp/lib/libassimp.a:
+
 /usr/lib/x86_64-linux-gnu/libfreetype.so:
 
 /usr/lib/x86_64-linux-gnu/librt.a:
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/../../../x86_64-linux-gnu/libdl.a:
+
+/usr/lib/x86_64-linux-gnu/libz.so:
+
+/usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/../../../x86_64-linux-gnu/librt.a:
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/../../../x86_64-linux-gnu/libstdc++.so:
 
@@ -159,8 +167,6 @@ ThirdParty/glfw-3.4/src/libglfw3.a:
 /usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/crtendS.o:
 
 /usr/lib/gcc/x86_64-unknown-linux-gnu/15.2.0/../../../x86_64-linux-gnu/crtn.o:
-
-/usr/lib/x86_64-linux-gnu/libz.so.1:
 
 /usr/lib/x86_64-linux-gnu/libbz2.so.1:
 

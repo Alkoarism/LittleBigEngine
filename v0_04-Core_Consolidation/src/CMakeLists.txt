@@ -41,6 +41,7 @@ target_sources(${VERSION_NAME}
       OpenGL/vertex_buffer_layout.h
 
       ThirdParty/glad/glad.h
+      ThirdParty/stb_image.h
 
       World/entity.h
       World/mesh.h
@@ -51,8 +52,6 @@ target_sources(${VERSION_NAME}
       Modules/font.h
       Modules/fontAtlas.h
       Modules/imgLoader.h
-
-      ThirdParty/stb_image.h
 )
 
 #Includes folders
@@ -65,8 +64,8 @@ target_include_directories(${VERSION_NAME}
 add_subdirectory(ThirdParty/glfw-3.4)
 target_link_libraries(${VERSION_NAME} PRIVATE glfw)
 
-#add_subdirectory(ThirdParty/assimp/)
-#target_link_libraries(${VERSION_NAME} PRIVATE assimp)
+add_subdirectory(ThirdParty/assimp/)
+target_link_libraries(${VERSION_NAME} PRIVATE assimp)
 
 find_package(Freetype)
 target_link_libraries(${VERSION_NAME} PRIVATE Freetype::Freetype)

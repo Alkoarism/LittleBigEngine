@@ -85,23 +85,110 @@ clean: src/clean
 src/all: src/CMakeFiles/CoreConsolidation.dir/all
 src/all: src/CMakeFiles/resCopy.dir/all
 src/all: src/ThirdParty/glfw-3.4/all
+src/all: src/ThirdParty/assimp/all
 .PHONY : src/all
 
 # Recursive "codegen" directory target.
 src/codegen: src/CMakeFiles/CoreConsolidation.dir/codegen
 src/codegen: src/CMakeFiles/resCopy.dir/codegen
 src/codegen: src/ThirdParty/glfw-3.4/codegen
+src/codegen: src/ThirdParty/assimp/codegen
 .PHONY : src/codegen
 
 # Recursive "preinstall" directory target.
 src/preinstall: src/ThirdParty/glfw-3.4/preinstall
+src/preinstall: src/ThirdParty/assimp/preinstall
 .PHONY : src/preinstall
 
 # Recursive "clean" directory target.
 src/clean: src/CMakeFiles/CoreConsolidation.dir/clean
 src/clean: src/CMakeFiles/resCopy.dir/clean
 src/clean: src/ThirdParty/glfw-3.4/clean
+src/clean: src/ThirdParty/assimp/clean
 .PHONY : src/clean
+
+#=============================================================================
+# Directory level rules for directory src/ThirdParty/assimp
+
+# Recursive "all" directory target.
+src/ThirdParty/assimp/all: src/ThirdParty/assimp/code/all
+src/ThirdParty/assimp/all: src/ThirdParty/assimp/test/all
+.PHONY : src/ThirdParty/assimp/all
+
+# Recursive "codegen" directory target.
+src/ThirdParty/assimp/codegen: src/ThirdParty/assimp/code/codegen
+src/ThirdParty/assimp/codegen: src/ThirdParty/assimp/test/codegen
+.PHONY : src/ThirdParty/assimp/codegen
+
+# Recursive "preinstall" directory target.
+src/ThirdParty/assimp/preinstall: src/ThirdParty/assimp/code/preinstall
+src/ThirdParty/assimp/preinstall: src/ThirdParty/assimp/test/preinstall
+.PHONY : src/ThirdParty/assimp/preinstall
+
+# Recursive "clean" directory target.
+src/ThirdParty/assimp/clean: src/ThirdParty/assimp/code/clean
+src/ThirdParty/assimp/clean: src/ThirdParty/assimp/test/clean
+.PHONY : src/ThirdParty/assimp/clean
+
+#=============================================================================
+# Directory level rules for directory src/ThirdParty/assimp/code
+
+# Recursive "all" directory target.
+src/ThirdParty/assimp/code/all: src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/all
+.PHONY : src/ThirdParty/assimp/code/all
+
+# Recursive "codegen" directory target.
+src/ThirdParty/assimp/code/codegen: src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/codegen
+.PHONY : src/ThirdParty/assimp/code/codegen
+
+# Recursive "preinstall" directory target.
+src/ThirdParty/assimp/code/preinstall:
+.PHONY : src/ThirdParty/assimp/code/preinstall
+
+# Recursive "clean" directory target.
+src/ThirdParty/assimp/code/clean: src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/clean
+.PHONY : src/ThirdParty/assimp/code/clean
+
+#=============================================================================
+# Directory level rules for directory src/ThirdParty/assimp/test
+
+# Recursive "all" directory target.
+src/ThirdParty/assimp/test/all: src/ThirdParty/assimp/test/CMakeFiles/unit.dir/all
+src/ThirdParty/assimp/test/all: src/ThirdParty/assimp/test/headercheck/all
+.PHONY : src/ThirdParty/assimp/test/all
+
+# Recursive "codegen" directory target.
+src/ThirdParty/assimp/test/codegen: src/ThirdParty/assimp/test/CMakeFiles/unit.dir/codegen
+src/ThirdParty/assimp/test/codegen: src/ThirdParty/assimp/test/headercheck/codegen
+.PHONY : src/ThirdParty/assimp/test/codegen
+
+# Recursive "preinstall" directory target.
+src/ThirdParty/assimp/test/preinstall: src/ThirdParty/assimp/test/headercheck/preinstall
+.PHONY : src/ThirdParty/assimp/test/preinstall
+
+# Recursive "clean" directory target.
+src/ThirdParty/assimp/test/clean: src/ThirdParty/assimp/test/CMakeFiles/unit.dir/clean
+src/ThirdParty/assimp/test/clean: src/ThirdParty/assimp/test/headercheck/clean
+.PHONY : src/ThirdParty/assimp/test/clean
+
+#=============================================================================
+# Directory level rules for directory src/ThirdParty/assimp/test/headercheck
+
+# Recursive "all" directory target.
+src/ThirdParty/assimp/test/headercheck/all:
+.PHONY : src/ThirdParty/assimp/test/headercheck/all
+
+# Recursive "codegen" directory target.
+src/ThirdParty/assimp/test/headercheck/codegen:
+.PHONY : src/ThirdParty/assimp/test/headercheck/codegen
+
+# Recursive "preinstall" directory target.
+src/ThirdParty/assimp/test/headercheck/preinstall:
+.PHONY : src/ThirdParty/assimp/test/headercheck/preinstall
+
+# Recursive "clean" directory target.
+src/ThirdParty/assimp/test/headercheck/clean:
+.PHONY : src/ThirdParty/assimp/test/headercheck/clean
 
 #=============================================================================
 # Directory level rules for directory src/ThirdParty/glfw-3.4
@@ -172,14 +259,15 @@ src/ThirdParty/glfw-3.4/src/clean: src/ThirdParty/glfw-3.4/src/CMakeFiles/update
 # All Build rule for target.
 src/CMakeFiles/CoreConsolidation.dir/all: src/CMakeFiles/resCopy.dir/all
 src/CMakeFiles/CoreConsolidation.dir/all: src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/all
+src/CMakeFiles/CoreConsolidation.dir/all: src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/CoreConsolidation.dir/build.make src/CMakeFiles/CoreConsolidation.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/CoreConsolidation.dir/build.make src/CMakeFiles/CoreConsolidation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 "Built target CoreConsolidation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=1,2,3,4 "Built target CoreConsolidation"
 .PHONY : src/CMakeFiles/CoreConsolidation.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/CoreConsolidation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 64
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 70
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/CoreConsolidation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/CoreConsolidation.dir/rule
@@ -191,7 +279,7 @@ CoreConsolidation: src/CMakeFiles/CoreConsolidation.dir/rule
 # codegen rule for target.
 src/CMakeFiles/CoreConsolidation.dir/codegen: src/CMakeFiles/resCopy.dir/all
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/CoreConsolidation.dir/build.make src/CMakeFiles/CoreConsolidation.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 "Finished codegen for target CoreConsolidation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target CoreConsolidation"
 .PHONY : src/CMakeFiles/CoreConsolidation.dir/codegen
 
 # clean rule for target.
@@ -206,12 +294,12 @@ src/CMakeFiles/CoreConsolidation.dir/clean:
 src/CMakeFiles/resCopy.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/resCopy.dir/build.make src/CMakeFiles/resCopy.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/resCopy.dir/build.make src/CMakeFiles/resCopy.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=64 "Built target resCopy"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num= "Built target resCopy"
 .PHONY : src/CMakeFiles/resCopy.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/resCopy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/resCopy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/resCopy.dir/rule
@@ -223,7 +311,7 @@ resCopy: src/CMakeFiles/resCopy.dir/rule
 # codegen rule for target.
 src/CMakeFiles/resCopy.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/resCopy.dir/build.make src/CMakeFiles/resCopy.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=64 "Finished codegen for target resCopy"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num= "Finished codegen for target resCopy"
 .PHONY : src/CMakeFiles/resCopy.dir/codegen
 
 # clean rule for target.
@@ -270,12 +358,12 @@ src/ThirdParty/glfw-3.4/CMakeFiles/uninstall.dir/clean:
 src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/build.make src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/build.make src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63 "Built target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=60,61,62,63,64,65,66,67,68,69,70 "Built target glfw"
 .PHONY : src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/all
 
 # Build rule for subdir invocation for target.
 src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 45
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 0
 .PHONY : src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/rule
@@ -287,7 +375,7 @@ glfw: src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/rule
 # codegen rule for target.
 src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/build.make src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63 "Finished codegen for target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=60,61,62,63,64,65,66,67,68,69,70 "Finished codegen for target glfw"
 .PHONY : src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/codegen
 
 # clean rule for target.
@@ -302,7 +390,7 @@ src/ThirdParty/glfw-3.4/src/CMakeFiles/glfw.dir/clean:
 src/ThirdParty/glfw-3.4/src/CMakeFiles/update_mappings.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/ThirdParty/glfw-3.4/src/CMakeFiles/update_mappings.dir/build.make src/ThirdParty/glfw-3.4/src/CMakeFiles/update_mappings.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/ThirdParty/glfw-3.4/src/CMakeFiles/update_mappings.dir/build.make src/ThirdParty/glfw-3.4/src/CMakeFiles/update_mappings.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=65 "Built target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=100 "Built target update_mappings"
 .PHONY : src/ThirdParty/glfw-3.4/src/CMakeFiles/update_mappings.dir/all
 
 # Build rule for subdir invocation for target.
@@ -319,7 +407,7 @@ update_mappings: src/ThirdParty/glfw-3.4/src/CMakeFiles/update_mappings.dir/rule
 # codegen rule for target.
 src/ThirdParty/glfw-3.4/src/CMakeFiles/update_mappings.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/ThirdParty/glfw-3.4/src/CMakeFiles/update_mappings.dir/build.make src/ThirdParty/glfw-3.4/src/CMakeFiles/update_mappings.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=65 "Finished codegen for target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=100 "Finished codegen for target update_mappings"
 .PHONY : src/ThirdParty/glfw-3.4/src/CMakeFiles/update_mappings.dir/codegen
 
 # clean rule for target.
@@ -358,6 +446,70 @@ src/ThirdParty/glfw-3.4/docs/CMakeFiles/docs.dir/codegen:
 src/ThirdParty/glfw-3.4/docs/CMakeFiles/docs.dir/clean:
 	$(MAKE) $(MAKESILENT) -f src/ThirdParty/glfw-3.4/docs/CMakeFiles/docs.dir/build.make src/ThirdParty/glfw-3.4/docs/CMakeFiles/docs.dir/clean
 .PHONY : src/ThirdParty/glfw-3.4/docs/CMakeFiles/docs.dir/clean
+
+#=============================================================================
+# Target rules for target src/ThirdParty/assimp/code/CMakeFiles/assimp.dir
+
+# All Build rule for target.
+src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/all:
+	$(MAKE) $(MAKESILENT) -f src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/build.make src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/build.make src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59 "Built target assimp"
+.PHONY : src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/all
+
+# Build rule for subdir invocation for target.
+src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 55
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 0
+.PHONY : src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/rule
+
+# Convenience name for target.
+assimp: src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/rule
+.PHONY : assimp
+
+# codegen rule for target.
+src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/build.make src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59 "Finished codegen for target assimp"
+.PHONY : src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/codegen
+
+# clean rule for target.
+src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/build.make src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/clean
+.PHONY : src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/clean
+
+#=============================================================================
+# Target rules for target src/ThirdParty/assimp/test/CMakeFiles/unit.dir
+
+# All Build rule for target.
+src/ThirdParty/assimp/test/CMakeFiles/unit.dir/all: src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/all
+	$(MAKE) $(MAKESILENT) -f src/ThirdParty/assimp/test/CMakeFiles/unit.dir/build.make src/ThirdParty/assimp/test/CMakeFiles/unit.dir/depend
+	$(MAKE) $(MAKESILENT) -f src/ThirdParty/assimp/test/CMakeFiles/unit.dir/build.make src/ThirdParty/assimp/test/CMakeFiles/unit.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99 "Built target unit"
+.PHONY : src/ThirdParty/assimp/test/CMakeFiles/unit.dir/all
+
+# Build rule for subdir invocation for target.
+src/ThirdParty/assimp/test/CMakeFiles/unit.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 84
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/ThirdParty/assimp/test/CMakeFiles/unit.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles 0
+.PHONY : src/ThirdParty/assimp/test/CMakeFiles/unit.dir/rule
+
+# Convenience name for target.
+unit: src/ThirdParty/assimp/test/CMakeFiles/unit.dir/rule
+.PHONY : unit
+
+# codegen rule for target.
+src/ThirdParty/assimp/test/CMakeFiles/unit.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f src/ThirdParty/assimp/test/CMakeFiles/unit.dir/build.make src/ThirdParty/assimp/test/CMakeFiles/unit.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99 "Finished codegen for target unit"
+.PHONY : src/ThirdParty/assimp/test/CMakeFiles/unit.dir/codegen
+
+# clean rule for target.
+src/ThirdParty/assimp/test/CMakeFiles/unit.dir/clean:
+	$(MAKE) $(MAKESILENT) -f src/ThirdParty/assimp/test/CMakeFiles/unit.dir/build.make src/ThirdParty/assimp/test/CMakeFiles/unit.dir/clean
+.PHONY : src/ThirdParty/assimp/test/CMakeFiles/unit.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

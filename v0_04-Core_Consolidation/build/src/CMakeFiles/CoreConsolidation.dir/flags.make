@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty/glfw-3.4/include -isystem /usr/include/freetype2
+C_INCLUDES = -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty/glfw-3.4/include -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty/assimp/code/../include -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src/ThirdParty/assimp/code/../include -isystem /usr/include/freetype2
 
 C_FLAGS = 
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty/glfw-3.4/include -isystem /usr/include/freetype2
+CXX_INCLUDES = -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty/glfw-3.4/include -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty/assimp/code/../include -I/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src/ThirdParty/assimp/code/../include -isystem /usr/include/freetype2
 
 CXX_FLAGS = 
 

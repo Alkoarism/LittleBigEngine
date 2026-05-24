@@ -47,6 +47,11 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src/ThirdParty/glfw-3.4/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src/ThirdParty/assimp/cmake_install.cmake")
+endif()
+
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)

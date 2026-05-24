@@ -76,7 +76,7 @@ src/CMakeFiles/CoreConsolidation.dir/main.cpp.o: src/CMakeFiles/CoreConsolidatio
 src/CMakeFiles/CoreConsolidation.dir/main.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/main.cpp
 src/CMakeFiles/CoreConsolidation.dir/main.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/main.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/main.cpp.o -MF CMakeFiles/CoreConsolidation.dir/main.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/main.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/main.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/main.cpp.o -MF CMakeFiles/CoreConsolidation.dir/main.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/main.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/main.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/main.cpp.i"
@@ -90,7 +90,7 @@ src/CMakeFiles/CoreConsolidation.dir/OpenGL/camera.cpp.o: src/CMakeFiles/CoreCon
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/camera.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/camera.cpp
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/camera.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/OpenGL/camera.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/camera.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/camera.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/camera.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/camera.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/camera.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/camera.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/camera.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/camera.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/OpenGL/camera.cpp.i"
@@ -104,7 +104,7 @@ src/CMakeFiles/CoreConsolidation.dir/OpenGL/index_buffer.cpp.o: src/CMakeFiles/C
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/index_buffer.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/index_buffer.cpp
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/index_buffer.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/OpenGL/index_buffer.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/index_buffer.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/index_buffer.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/index_buffer.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/index_buffer.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/index_buffer.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/index_buffer.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/index_buffer.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/index_buffer.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/index_buffer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/OpenGL/index_buffer.cpp.i"
@@ -118,7 +118,7 @@ src/CMakeFiles/CoreConsolidation.dir/OpenGL/renderer.cpp.o: src/CMakeFiles/CoreC
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/renderer.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/renderer.cpp
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/renderer.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/OpenGL/renderer.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/renderer.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/renderer.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/renderer.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/renderer.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/renderer.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/renderer.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/renderer.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/renderer.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/renderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/OpenGL/renderer.cpp.i"
@@ -132,7 +132,7 @@ src/CMakeFiles/CoreConsolidation.dir/OpenGL/shader.cpp.o: src/CMakeFiles/CoreCon
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/shader.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/shader.cpp
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/shader.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/OpenGL/shader.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/shader.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/shader.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/shader.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/shader.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/shader.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/shader.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/shader.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/shader.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/shader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/OpenGL/shader.cpp.i"
@@ -146,7 +146,7 @@ src/CMakeFiles/CoreConsolidation.dir/OpenGL/texture.cpp.o: src/CMakeFiles/CoreCo
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/texture.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/texture.cpp
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/texture.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/OpenGL/texture.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/texture.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/texture.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/texture.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/texture.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/texture.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/texture.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/texture.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/texture.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/texture.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/OpenGL/texture.cpp.i"
@@ -160,7 +160,7 @@ src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_array.cpp.o: src/CMakeFiles/C
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_array.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/vertex_array.cpp
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_array.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_array.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_array.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_array.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_array.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/vertex_array.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_array.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_array.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_array.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/vertex_array.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_array.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_array.cpp.i"
@@ -174,7 +174,7 @@ src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_buffer.cpp.o: src/CMakeFiles/
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_buffer.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/vertex_buffer.cpp
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_buffer.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_buffer.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_buffer.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_buffer.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_buffer.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/vertex_buffer.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_buffer.cpp.o -MF CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_buffer.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_buffer.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/OpenGL/vertex_buffer.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_buffer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/OpenGL/vertex_buffer.cpp.i"
@@ -188,7 +188,7 @@ src/CMakeFiles/CoreConsolidation.dir/ThirdParty/glad/glad.c.o: src/CMakeFiles/Co
 src/CMakeFiles/CoreConsolidation.dir/ThirdParty/glad/glad.c.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty/glad/glad.c
 src/CMakeFiles/CoreConsolidation.dir/ThirdParty/glad/glad.c.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object src/CMakeFiles/CoreConsolidation.dir/ThirdParty/glad/glad.c.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/ThirdParty/glad/glad.c.o -MF CMakeFiles/CoreConsolidation.dir/ThirdParty/glad/glad.c.o.d -o CMakeFiles/CoreConsolidation.dir/ThirdParty/glad/glad.c.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty/glad/glad.c
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/ThirdParty/glad/glad.c.o -MF CMakeFiles/CoreConsolidation.dir/ThirdParty/glad/glad.c.o.d -o CMakeFiles/CoreConsolidation.dir/ThirdParty/glad/glad.c.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/ThirdParty/glad/glad.c
 
 src/CMakeFiles/CoreConsolidation.dir/ThirdParty/glad/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/CoreConsolidation.dir/ThirdParty/glad/glad.c.i"
@@ -202,7 +202,7 @@ src/CMakeFiles/CoreConsolidation.dir/World/entity.cpp.o: src/CMakeFiles/CoreCons
 src/CMakeFiles/CoreConsolidation.dir/World/entity.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/World/entity.cpp
 src/CMakeFiles/CoreConsolidation.dir/World/entity.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/World/entity.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/World/entity.cpp.o -MF CMakeFiles/CoreConsolidation.dir/World/entity.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/World/entity.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/World/entity.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/World/entity.cpp.o -MF CMakeFiles/CoreConsolidation.dir/World/entity.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/World/entity.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/World/entity.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/World/entity.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/World/entity.cpp.i"
@@ -216,7 +216,7 @@ src/CMakeFiles/CoreConsolidation.dir/World/mesh.cpp.o: src/CMakeFiles/CoreConsol
 src/CMakeFiles/CoreConsolidation.dir/World/mesh.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/World/mesh.cpp
 src/CMakeFiles/CoreConsolidation.dir/World/mesh.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/World/mesh.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/World/mesh.cpp.o -MF CMakeFiles/CoreConsolidation.dir/World/mesh.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/World/mesh.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/World/mesh.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/World/mesh.cpp.o -MF CMakeFiles/CoreConsolidation.dir/World/mesh.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/World/mesh.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/World/mesh.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/World/mesh.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/World/mesh.cpp.i"
@@ -230,7 +230,7 @@ src/CMakeFiles/CoreConsolidation.dir/World/model.cpp.o: src/CMakeFiles/CoreConso
 src/CMakeFiles/CoreConsolidation.dir/World/model.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/World/model.cpp
 src/CMakeFiles/CoreConsolidation.dir/World/model.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/World/model.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/World/model.cpp.o -MF CMakeFiles/CoreConsolidation.dir/World/model.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/World/model.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/World/model.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/World/model.cpp.o -MF CMakeFiles/CoreConsolidation.dir/World/model.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/World/model.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/World/model.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/World/model.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/World/model.cpp.i"
@@ -244,7 +244,7 @@ src/CMakeFiles/CoreConsolidation.dir/World/things.cpp.o: src/CMakeFiles/CoreCons
 src/CMakeFiles/CoreConsolidation.dir/World/things.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/World/things.cpp
 src/CMakeFiles/CoreConsolidation.dir/World/things.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/World/things.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/World/things.cpp.o -MF CMakeFiles/CoreConsolidation.dir/World/things.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/World/things.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/World/things.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/World/things.cpp.o -MF CMakeFiles/CoreConsolidation.dir/World/things.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/World/things.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/World/things.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/World/things.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/World/things.cpp.i"
@@ -258,7 +258,7 @@ src/CMakeFiles/CoreConsolidation.dir/Modules/bitmap.cpp.o: src/CMakeFiles/CoreCo
 src/CMakeFiles/CoreConsolidation.dir/Modules/bitmap.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/Modules/bitmap.cpp
 src/CMakeFiles/CoreConsolidation.dir/Modules/bitmap.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/Modules/bitmap.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/Modules/bitmap.cpp.o -MF CMakeFiles/CoreConsolidation.dir/Modules/bitmap.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/Modules/bitmap.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/Modules/bitmap.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/Modules/bitmap.cpp.o -MF CMakeFiles/CoreConsolidation.dir/Modules/bitmap.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/Modules/bitmap.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/Modules/bitmap.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/Modules/bitmap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/Modules/bitmap.cpp.i"
@@ -272,7 +272,7 @@ src/CMakeFiles/CoreConsolidation.dir/Modules/font.cpp.o: src/CMakeFiles/CoreCons
 src/CMakeFiles/CoreConsolidation.dir/Modules/font.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/Modules/font.cpp
 src/CMakeFiles/CoreConsolidation.dir/Modules/font.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/Modules/font.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/Modules/font.cpp.o -MF CMakeFiles/CoreConsolidation.dir/Modules/font.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/Modules/font.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/Modules/font.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/Modules/font.cpp.o -MF CMakeFiles/CoreConsolidation.dir/Modules/font.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/Modules/font.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/Modules/font.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/Modules/font.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/Modules/font.cpp.i"
@@ -286,7 +286,7 @@ src/CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.o: src/CMakeFiles/Cor
 src/CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/Modules/fontAtlas.cpp
 src/CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.o -MF CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/Modules/fontAtlas.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.o -MF CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/Modules/fontAtlas.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/Modules/fontAtlas.cpp.i"
@@ -300,7 +300,7 @@ src/CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.o: src/CMakeFiles/Cor
 src/CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.o: /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/Modules/imgLoader.cpp
 src/CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.o: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object src/CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.o"
-	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.o -MF CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/Modules/imgLoader.cpp
+	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && /usr/bin/ccache /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.o -MF CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.o.d -o CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.o -c /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/src/Modules/imgLoader.cpp
 
 src/CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cpp.i"
@@ -353,9 +353,11 @@ src/CoreConsolidation: src/CMakeFiles/CoreConsolidation.dir/Modules/imgLoader.cp
 src/CoreConsolidation: src/CMakeFiles/CoreConsolidation.dir/build.make
 src/CoreConsolidation: src/CMakeFiles/CoreConsolidation.dir/compiler_depend.ts
 src/CoreConsolidation: src/ThirdParty/glfw-3.4/src/libglfw3.a
+src/CoreConsolidation: src/ThirdParty/assimp/lib/libassimp.a
 src/CoreConsolidation: /usr/lib/x86_64-linux-gnu/libfreetype.so
 src/CoreConsolidation: /usr/lib/x86_64-linux-gnu/librt.a
 src/CoreConsolidation: /usr/lib/x86_64-linux-gnu/libm.so
+src/CoreConsolidation: /usr/lib/x86_64-linux-gnu/libz.so
 src/CoreConsolidation: src/CMakeFiles/CoreConsolidation.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable CoreConsolidation"
 	cd /home/alkoarism/Documentos/LittleBigEngine/v0_04-Core_Consolidation/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CoreConsolidation.dir/link.txt --verbose=$(VERBOSE)

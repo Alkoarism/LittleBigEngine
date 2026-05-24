@@ -87,7 +87,7 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\" \"assimp-dev\" \"libassimp6.0.5-dev\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -246,6 +246,32 @@ docs/fast:
 	$(MAKE) $(MAKESILENT) -f src/ThirdParty/glfw-3.4/docs/CMakeFiles/docs.dir/build.make src/ThirdParty/glfw-3.4/docs/CMakeFiles/docs.dir/build
 .PHONY : docs/fast
 
+#=============================================================================
+# Target rules for targets named assimp
+
+# Build rule for target.
+assimp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 assimp
+.PHONY : assimp
+
+# fast build rule for target.
+assimp/fast:
+	$(MAKE) $(MAKESILENT) -f src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/build.make src/ThirdParty/assimp/code/CMakeFiles/assimp.dir/build
+.PHONY : assimp/fast
+
+#=============================================================================
+# Target rules for targets named unit
+
+# Build rule for target.
+unit: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 unit
+.PHONY : unit
+
+# fast build rule for target.
+unit/fast:
+	$(MAKE) $(MAKESILENT) -f src/ThirdParty/assimp/test/CMakeFiles/unit.dir/build.make src/ThirdParty/assimp/test/CMakeFiles/unit.dir/build
+.PHONY : unit/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -264,7 +290,9 @@ help:
 	@echo "... uninstall"
 	@echo "... update_mappings"
 	@echo "... CoreConsolidation"
+	@echo "... assimp"
 	@echo "... glfw"
+	@echo "... unit"
 .PHONY : help
 
 
