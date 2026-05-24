@@ -1,0 +1,22 @@
+# Hashes of file build rules.
+4d024ead175f71024c6762ef8018929c src/CMakeFiles/resCopy
+341922297e0ec87efb3f705980ca2a6c src/ThirdParty/glfw-3.4/CMakeFiles/uninstall
+f04e7ef8c36cfda88c265f589e628912 src/ThirdParty/glfw-3.4/src/CMakeFiles/update_mappings
+7275a8eb72f8e078cfbc1cb27ca48f4c src/ThirdParty/glfw-3.4/src/fractional-scale-v1-client-protocol-code.h
+b1dc77627822a788a0a002430e5e5e06 src/ThirdParty/glfw-3.4/src/fractional-scale-v1-client-protocol.h
+27bf617a1f89bd9a761b54753da308b8 src/ThirdParty/glfw-3.4/src/idle-inhibit-unstable-v1-client-protocol-code.h
+3e20f66662d01cb9d8444046dfdb5a06 src/ThirdParty/glfw-3.4/src/idle-inhibit-unstable-v1-client-protocol.h
+0d718d6a3082748b0abb2acff92026fb src/ThirdParty/glfw-3.4/src/pointer-constraints-unstable-v1-client-protocol-code.h
+4d1d22c882501ae71f8ed3b867412f53 src/ThirdParty/glfw-3.4/src/pointer-constraints-unstable-v1-client-protocol.h
+54daceb7eb37bb0e4110c3841bcf8223 src/ThirdParty/glfw-3.4/src/relative-pointer-unstable-v1-client-protocol-code.h
+6d4cba2337b7a3d19e1a611f4ea400e2 src/ThirdParty/glfw-3.4/src/relative-pointer-unstable-v1-client-protocol.h
+de86105b5c3440e8f40d51561ecdb498 src/ThirdParty/glfw-3.4/src/viewporter-client-protocol-code.h
+7c9fa859f61c4ca48034a93cded03522 src/ThirdParty/glfw-3.4/src/viewporter-client-protocol.h
+e7f8d185a05bd426d72c899d00a8d20c src/ThirdParty/glfw-3.4/src/wayland-client-protocol-code.h
+8359a8113aac841695c245c1832e1fea src/ThirdParty/glfw-3.4/src/wayland-client-protocol.h
+747fadb059adf80410d406e58c2c3130 src/ThirdParty/glfw-3.4/src/xdg-activation-v1-client-protocol-code.h
+c961a56431090bcb92a8474f0adf8824 src/ThirdParty/glfw-3.4/src/xdg-activation-v1-client-protocol.h
+014664c5abca0a2e0c4270197372f15d src/ThirdParty/glfw-3.4/src/xdg-decoration-unstable-v1-client-protocol-code.h
+088ef37bdaaa42ce2b0d6629f46767b5 src/ThirdParty/glfw-3.4/src/xdg-decoration-unstable-v1-client-protocol.h
+8bebf28cc8143137b7b916508c4b033d src/ThirdParty/glfw-3.4/src/xdg-shell-client-protocol-code.h
+fb5f2abcc62cf912257c14d53e430432 src/ThirdParty/glfw-3.4/src/xdg-shell-client-protocol.h
