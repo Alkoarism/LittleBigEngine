@@ -140,8 +140,7 @@ int main() {
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glActiveTexture(GL_TEXTURE0);
 		atlasTexture.Bind();
-		RenderText(fontShader, "abcedfghijklmnopqrstuvwxyz1234567890", 10.0f, 20.0f, 0.5f, glm::vec3(1.0f, 1.0f, 0.0f));
-		RenderText(fontShader, "-_=+[{(,<>.;:/?!@#$%\\\"&*)}]", 10.0f, 60.0f, 0.5f, glm::vec3(1.0f, 1.0f, 0.0f));
+		//Text Rendering
 		if (shouldBlend) glDisable(GL_BLEND);	//Blending control
 
 		// -> check and call events and swap the buffers
