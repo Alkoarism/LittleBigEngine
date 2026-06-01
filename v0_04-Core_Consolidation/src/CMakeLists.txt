@@ -2,6 +2,17 @@ set(VERSION_NAME "CoreConsolidation")
 
 #Executable files and their respective headers
 add_executable(${VERSION_NAME})
+
+target_compile_definitions(${VERSION_NAME}
+  PRIVATE
+    PROJECT_NAME="${PROJECT_NAME}"
+    PROJECT_VERSION_NAME="${VERSION_NAME}"
+    VERSION="${PROJECT_VERSION}"
+    VERSION_MAJOR="${PROJECT_VERSION_MAJOR}"
+    VERSION_MINOR="${PROJECT_VERSION_MINOR}"
+    VERSION_PATCH="${PROJECT_VERSION_PATCH}"
+)
+
 target_sources(${VERSION_NAME}
   PRIVATE
     main.cpp
@@ -25,6 +36,7 @@ target_sources(${VERSION_NAME}
     Modules/font.cpp
     Modules/fontAtlas.cpp
     Modules/imgLoader.cpp
+    Modules/assetLoader.cpp
 
   PUBLIC
     FILE_SET HEADERS
@@ -52,6 +64,7 @@ target_sources(${VERSION_NAME}
       Modules/font.h
       Modules/fontAtlas.h
       Modules/imgLoader.h
+      Modules/assetLoader.h
 )
 
 #Includes folders
@@ -61,10 +74,12 @@ target_include_directories(${VERSION_NAME}
 )
 
 #Look for third party packages on linux
-add_subdirectory(ThirdParty/glfw-3.4)
+set(THIRDPARTY_DIR "ThirdParty")
+
+add_subdirectory(${THIRDPARTY_DIR}/glfw-3.4)
 target_link_libraries(${VERSION_NAME} PRIVATE glfw)
 
-add_subdirectory(ThirdParty/assimp/)
+add_subdirectory(${THIRDPARTY_DIR}/assimp)
 target_link_libraries(${VERSION_NAME} PRIVATE assimp)
 
 find_package(Freetype)

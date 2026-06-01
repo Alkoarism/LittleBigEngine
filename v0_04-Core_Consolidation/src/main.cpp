@@ -51,8 +51,9 @@ int main() {
 #endif
 
 	// glfw: window creation and setup -------------------------------------------
+	std::string exibitionName = LBE_PROJECT_VERSION_NAME + " " + LBE_VERSION;
 	GLFWwindow* window = glfwCreateWindow
-		(screenWidth,  screenHeight, "OpenGL LittleBigEngine", NULL, NULL);
+		(screenWidth,  screenHeight, exibitionName.data(), NULL, NULL);
 	if (!window) {
 		std::cout << "Failed to create GLFW window" << std::endl;
 		glfwTerminate();
